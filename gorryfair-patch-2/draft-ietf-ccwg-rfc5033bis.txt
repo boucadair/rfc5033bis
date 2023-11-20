@@ -6,7 +6,7 @@ CCWG                                                        M. Duke, Ed.
 Internet-Draft                                                Google LLC
 Obsoletes: 5033 (if approved)                          G. Fairhurst, Ed.
 Intended status: Best Current Practice            University of Aberdeen
-Expires: 22 April 2024                                   20 October 2023
+Expires: 23 May 2024                                    20 November 2023
 
 
               Specifying New Congestion Control Algorithms
@@ -29,12 +29,21 @@ Abstract
    document is to provide guidance for considering alternate congestion
    control algorithms within the IETF.
 
-Discussion Venues
+About This Document
 
    This note is to be removed before publishing as an RFC.
 
+   Status information for this document may be found at
+   https://datatracker.ietf.org/doc/draft-ietf-ccwg-rfc5033bis/.
+
+   Discussion of this document takes place on the Congestion Control
+   Working Group (ccwg) Working Group mailing list
+   (mailto:ccwg@ietf.org), which is archived at
+   https://mailarchive.ietf.org/arch/browse/ccwg/.  Subscribe at
+   https://www.ietf.org/mailman/listinfo/ccwg/.
+
    Source for this draft and an issue tracker can be found at
-   https://github.com/rscheff/drafts.
+   https://github.com/ietf-wg-ccwg/rfc5033bis.
 
 Status of This Memo
 
@@ -51,7 +60,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 22 April 2024.
+   This Internet-Draft will expire on 23 May 2024.
 
 Copyright Notice
 
@@ -74,10 +83,11 @@ Table of Contents
    3.  Evaluation Criteria
      3.1.  Single Algorithm Behavior
        3.1.1.  Protection Against Congestion Collapse
-       3.1.2.  Protection Against Bufferbloat
-       3.1.3.  Fairness within the Alternate Congestion Control
+       3.1.2.  Implement full backoff
+       3.1.3.  Protection Against Bufferbloat
+       3.1.4.  Fairness within the Alternate Congestion Control
                Algorithm.
-       3.1.4.  Short Flows
+       3.1.5.  Short Flows
      3.2.  Mixed Algorithm Behavior
        3.2.1.  Existing General-Purpose Transports
        3.2.2.  Real-Time Protocols
@@ -114,12 +124,12 @@ Table of Contents
 1.  Introduction
 
    This document provides guidelines for the IETF to use when evaluating
-   suggested congestion control algorithms that significantly differ
-   from the general congestion control principles outlined in [RFC2914].
-   The guidance is intended to be useful to authors proposing alternate
-   congestion control and for the IETF community when evaluating whether
-   a proposal is appropriate for publication in the RFC series and for
-   deployment in the Internet.
+   suggested congestion control algorithms that differ from the general
+   congestion control principles outlined in [RFC2914].  The guidance is
+   intended to be useful to authors proposing alternate congestion
+   control and for the IETF community when evaluating whether a proposal
+   is appropriate for publication in the RFC series and for deployment
+   in the Internet.
 
    This document updates the similarly titled [RFC5033] that was
    published in 2007 as a Best Current Practice to evaluate new
@@ -135,9 +145,10 @@ Table of Contents
    include DCCP, QUIC, and beyond.  Some congestion control algorithm
    proponents now have the opportunity to test and deploy at scale
    without IETF review.  There is more interest in specialized use cases
-   such as data centers and real-time protocols.  Finally, the community
-   has gained much more experience with indications of congestion beyond
-   packet loss.
+   such as data centers, and in support for a variety of upper layer
+   protocols/applications, e.g., real-time protocols.  Finally, the
+   community has gained much more experience with indications of
+   congestion beyond packet loss.
 
    Multiple congestion control algorithms have been developed outside of
    the IETF, including at least two that saw large scale deployment:
@@ -194,27 +205,29 @@ Table of Contents
    control algorithms are expected to be published as "Experimental"
    RFCs until such time that the community better understands the
    solution space.  Traditionally, the meaning of "Experimental" status
-   has varied in its use and interpretation.  As part of this document
-   we define two classes of congestion control proposals that can be
-   published with the "Experimental" status.  The first class includes
-   algorithms that are judged to be safe to deploy for best-effort
-   traffic in the global Internet and further investigated in that
-   environment.  The second class includes algorithms that, while
-   promising, are not deemed safe enough for widespread deployment as
-   best-effort traffic on the Internet, but are being specified to
-   facilitate investigations in simulation, testbeds, or controlled
-   environments.  The second class can also include algorithms where the
-   IETF does not yet have sufficient understanding to decide if the
-   algorithm is or is not safe for deployment on the Internet.
+   has varied in its use and interpretation.
+
+   As part of this document we define two classes of congestion control
+   proposals that can be published with the "Experimental" status.  The
+   first class includes algorithms that are judged to be safe to deploy
+   for best-effort traffic in the global Internet and further
+   investigated in that environment.  The second class includes
+   algorithms that, while promising, are not yet deemed safe enough for
+   widespread deployment as best-effort traffic on the Internet, but are
+   being specified to facilitate investigations in simulation, testbeds,
+   or controlled environments.  The second class can also include
+   algorithms where the IETF does not yet have sufficient understanding
+   to decide if the algorithm is or is not safe for deployment on the
+   Internet.
 
    Each alternate congestion control algorithm published is required to
    include a statement in the abstract indicating whether or not the
    proposal is considered safe for use on the Internet.  Each alternate
    congestion control algorithm published is also required to include a
    statement in the abstract describing environments where the protocol
-   is not recommended for deployment.  There may be environments where
-   the protocol is deemed _safe_ for use, but still is not _recommended_
-   for use because it does not perform well for the user.
+   is not recommended for deployment.  There can be environments where
+   the protocol is deemed _safe_ for use, but it is still is not
+   _recommended_ for use because it does not perform well for the user.
 
    As examples of such statements, [RFC3649] specifying HighSpeed TCP
    includes a statement in the abstract stating that the proposal is
@@ -239,10 +252,11 @@ Table of Contents
    alternate congestion control mechanism for the benefit of the IETF
    and IRTF communities.  This is particularly encouraged in order to
    ensure algorithm specifications are widely disseminated to facilitate
-   further research.  Such an internet-draft could also be considered as
-   an Informational RFC, as a first step in the process towards
-   standardization.  Such a document would be expected to carry an
-   explicit warning against using the scheme in the global Internet.
+   further research.  Such an internet-draft could also be considered
+   for publication as an Informational RFC, as a first step in the
+   process towards standardization.  Such a document would be expected
+   to carry an explicit warning against using the scheme in the global
+   Internet.
 
    Note: we are not changing the RFC publication process for non-IETF
    produced documents (e.g., those from the IRTF or Independent
@@ -271,6 +285,30 @@ Table of Contents
 
 3.1.1.  Protection Against Congestion Collapse
 
+   The alternate congestion control mechanism should not cause increased
+   overhead under adverse network conditions.
+
+   This criteria can be evaluated by counting the total bytes (data and
+   headers) arriving at the receiver when delivering a fixed workload
+   over varying network conditions.  The total delivered bytes should
+   remain constant, independent of network conditions over the entire
+   operating range for the protocol.  For general transport protocols
+   such as TCP this means over any path in the Internet.
+
+   There are known exceptions to this guideline, for example spurious
+   Retransmission Timeouts [RFC8298][RFC7765] and TCP loss Probe
+   [RFC8985].  These algorithms can substantially improve application
+   performance in certain environments at the cost of additional network
+   overhead due to spurious retransmissions.
+
+   Alternate congestion control mechanisms should be carefully evaluated
+   for exceptions.  That evaluation should appropriately reflect on any
+   the inherent trade-offs.
+
+   This criteria can also be applied protocol layers above transport.
+
+3.1.2.  Implement full backoff
+
    The alternate congestion control mechanism should either stop sending
    when the packet drop rate exceeds some threshold [RFC3714], or should
    include some notion of "full backoff".  For "full backoff", at some
@@ -288,7 +326,7 @@ Table of Contents
    mechanisms that would give flows with different round- trip times
    comparable capacity during backoff.
 
-3.1.2.  Protection Against Bufferbloat
+3.1.3.  Protection Against Bufferbloat
 
    The alternate congestion control mechanism should reduce its sending
    rate if the round trip time (RTT) significantly increases.  Exactly
@@ -312,13 +350,13 @@ Table of Contents
    newly designed congestion control algorithms have the opportunity to
    improve the state of the art.
 
-3.1.3.  Fairness within the Alternate Congestion Control Algorithm.
+3.1.4.  Fairness within the Alternate Congestion Control Algorithm.
 
    When multiple competing flows all using the same alternate congestion
    control algorithm, the proposal should explore how the capacity is
    shared among the competing flows.
 
-3.1.4.  Short Flows
+3.1.5.  Short Flows
 
    (TODO: Discuss short and long flows)
 
@@ -438,7 +476,7 @@ Table of Contents
 5.  Special Cases
 
    The criteria in Section 3 will be evaluated in the following
-   scenarios, unless the proposal specifically presents its use in a
+   scenarios, unless the proposal specifically excludes its use in a
    scenario.  The community MAY allow a proposal to progress even if the
    criteria indicate an unsatisfactory result for these scenarios.
 
@@ -453,7 +491,7 @@ Table of Contents
 5.2.  Satellite
 
    Satellite links often have delays longer than typical for wired paths
-   [RFC2488] and high delay bandwidth products[RFC3649].
+   [RFC2488] and high delay bandwidth products [RFC3649].
 
 5.3.  Misbehaving Nodes
 
@@ -666,10 +704,24 @@ Table of Contents
               Control Mechanisms", RFC 5166, DOI 10.17487/RFC5166, March
               2008, <https://www.rfc-editor.org/rfc/rfc5166>.
 
+   [RFC7765]  Hurtig, P., Brunstrom, A., Petlund, A., and M. Welzl, "TCP
+              and Stream Control Transmission Protocol (SCTP) RTO
+              Restart", RFC 7765, DOI 10.17487/RFC7765, February 2016,
+              <https://www.rfc-editor.org/rfc/rfc7765>.
+
+   [RFC8298]  Johansson, I. and Z. Sarker, "Self-Clocked Rate Adaptation
+              for Multimedia", RFC 8298, DOI 10.17487/RFC8298, December
+              2017, <https://www.rfc-editor.org/rfc/rfc8298>.
+
    [RFC8312]  Rhee, I., Xu, L., Ha, S., Zimmermann, A., Eggert, L., and
               R. Scheffenegger, "CUBIC for Fast Long-Distance Networks",
               RFC 8312, DOI 10.17487/RFC8312, February 2018,
               <https://www.rfc-editor.org/rfc/rfc8312>.
+
+   [RFC8985]  Cheng, Y., Cardwell, N., Dukkipati, N., and P. Jha, "The
+              RACK-TLP Loss Detection Algorithm for TCP", RFC 8985,
+              DOI 10.17487/RFC8985, February 2021,
+              <https://www.rfc-editor.org/rfc/rfc8985>.
 
    [RFC9049]  Dawkins, S., Ed., "Path Aware Networking: Obstacles to
               Deployment (A Bestiary of Roads Not Taken)", RFC 9049,
