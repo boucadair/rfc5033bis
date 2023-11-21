@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2023-11-19T00:40:04.339238+00:00",
+  "timestamp": "2023-11-21T00:37:55.145546+00:00",
   "repo": "ietf-wg-ccwg/rfc5033bis",
   "labels": [
     {
@@ -376,12 +376,10 @@
       "assignees": [
         "martinduke"
       ],
-      "labels": [
-        "Needs Discussion"
-      ],
+      "labels": [],
       "body": "The guideline section discusses \"Investigating a Range of Environments\", with a focus especially on \"Random Early Detection (RED) [[FJ03](https://rscheff.github.io/rfc5033bis/draft-scheffenegger-congress-rfc5033bis.html#FJ03)] and Drop-Tail.\" The IETF and the IRTF have produced several different proposals for Active Queue management, with somewhat different characteristics. Interestingly, there is a tension there between developing Queue Management that \"plays well\" with existing congestion control algorithms, and developing congestion control algorithms that \"take advantage\" of AQM. Not sure what to say there, but at a minimum we should develop expectations about \"signals\" produced by AQM (e.g., the ECN markings of L4S) and reaction by congestion control algorithms.\r\n\r\nTo go further, the could be a discussion of \"honest signals\", such as delays, that are very hard to \"fake\" in routing nodes, other signals such as ECN marks that could be produced by the network at very little cost, and packet losses that fall kind of in between. But we are not writing for the IRTF, so this could be kept brief.",
       "createdAt": "2023-02-18T07:52:23Z",
-      "updatedAt": "2023-11-07T09:23:46Z",
+      "updatedAt": "2023-11-20T16:09:30Z",
       "closedAt": null,
       "comments": [
         {
@@ -895,13 +893,13 @@
       "state": "OPEN",
       "author": "martinduke",
       "authorAssociation": "COLLABORATOR",
-      "assignees": [],
-      "labels": [
-        "Needs Discussion"
+      "assignees": [
+        "martinduke"
       ],
+      "labels": [],
       "body": "The text currently reads:\r\n\r\n\"The community should also consider other non-standard congestion controls known to be widely deployed,\"\r\n\r\nThis is a compromise to land a mostly unrelated PR.\r\n\r\n@gorryfair doesn't think it's fair to expect participants to test algorithms that aren't fully specified.\r\n\r\nI would argue that if such specifications exist and the algorithm is systemically important, it absolutely should be modeled. Moreover, if the algorithm is rather loosely described, in many cases there is open source code (often in a Linux fork!) that can be tested on a host, or in simulation frameworks like ns3.\r\n\r\nIf an algorithm is a true black box, with no description besides marketing material, and no open-source code, I agree there is not much to be done. I also believe that while algorithms like this exist, they are not systemically important to the internet.",
       "createdAt": "2023-10-13T20:54:16Z",
-      "updatedAt": "2023-11-07T09:09:39Z",
+      "updatedAt": "2023-11-20T16:10:50Z",
       "closedAt": null,
       "comments": [
         {
@@ -928,11 +926,13 @@
       "state": "OPEN",
       "author": "gorryfair",
       "authorAssociation": "COLLABORATOR",
-      "assignees": [],
+      "assignees": [
+        "martinduke"
+      ],
       "labels": [],
       "body": "Discussed at IETF-118. \r\n\r\nAt least we can mention Sect 4 of Multicast UDP Usage Guidelines in RFC8085.",
       "createdAt": "2023-11-07T09:31:18Z",
-      "updatedAt": "2023-11-07T10:20:37Z",
+      "updatedAt": "2023-11-20T16:11:47Z",
       "closedAt": null,
       "comments": [
         {
@@ -948,6 +948,13 @@
           "body": "So just to provide the background for my question. The Reliable Multicast Transport WG (RMT) did produce two expermential congestion control specifications for multicast:\r\n\r\n- [Wave and Equation Based Rate Control (WEBRC) Building Block RFC 3738](https://datatracker.ietf.org/doc/rfc3738/)\r\n- [TCP-Friendly Multicast Congestion Control (TFMCC): Protocol Specification RFC 4654](https://datatracker.ietf.org/doc/rfc4654/)\r\n- [NORM Specification](https://datatracker.ietf.org/doc/rfc3940/)\r\n\r\nSo these specifications exists. Most mulitcast deployments are done in controlled environments however, with [Automatic Multicast Tunneling] (https://datatracker.ietf.org/doc/rfc7450/) multicast traffic these days have more probability to occur across links where this traffic would share bottlenecks with other unicast traffic. However, this amount of traffic is still normally bit-rate bound so it might be considered just in-elastic and consuming the bit-rate it does. \r\n\r\nI also want to state that I am fine with declaring multicast out of scope, but maybe some information about that there exist algorithms should be includeded in the draft. So an explicit out of scope with some background section/appendix. ",
           "createdAt": "2023-11-07T10:20:37Z",
           "updatedAt": "2023-11-07T10:20:37Z"
+        },
+        {
+          "author": "martinduke",
+          "authorAssociation": "COLLABORATOR",
+          "body": "We will put it out of scope and point to RFC 8085",
+          "createdAt": "2023-11-20T16:11:37Z",
+          "updatedAt": "2023-11-20T16:11:37Z"
         }
       ]
     },
@@ -959,13 +966,15 @@
       "state": "OPEN",
       "author": "martinduke",
       "authorAssociation": "COLLABORATOR",
-      "assignees": [],
+      "assignees": [
+        "martinduke"
+      ],
       "labels": [
         "editorial"
       ],
       "body": "Add some text to indicate that proponents don't need a complete report on all the criteria before coming to IETF. They can arrive having thought about these problems a little and have a willingness to do the work implied in this draft.",
       "createdAt": "2023-11-07T09:35:12Z",
-      "updatedAt": "2023-11-07T09:35:39Z",
+      "updatedAt": "2023-11-20T15:14:53Z",
       "closedAt": null,
       "comments": []
     },
@@ -974,15 +983,15 @@
       "id": "I_kwDOI7aIXc52EwMK",
       "title": "Explicit Bound on Self-induced loss?",
       "url": "https://github.com/ietf-wg-ccwg/rfc5033bis/issues/42",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "martinduke",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "@mattmathis proposes having a fixed bound on self-induced loss. Maybe 0.5, 1, or 2%",
       "createdAt": "2023-11-07T09:51:20Z",
-      "updatedAt": "2023-11-07T10:03:34Z",
-      "closedAt": null,
+      "updatedAt": "2023-11-20T16:13:11Z",
+      "closedAt": "2023-11-20T16:13:10Z",
       "comments": [
         {
           "author": "martinduke",
@@ -990,6 +999,13 @@
           "body": "Lars at mic: this is too new-fangled for a BCP.",
           "createdAt": "2023-11-07T10:03:34Z",
           "updatedAt": "2023-11-07T10:03:34Z"
+        },
+        {
+          "author": "martinduke",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Editors: agree with Lars -- this is a very interesting proposal with a lot of merit, but is frankly just too new to include in a BCP.",
+          "createdAt": "2023-11-20T16:13:10Z",
+          "updatedAt": "2023-11-20T16:13:10Z"
         }
       ]
     },
@@ -1001,13 +1017,23 @@
       "state": "OPEN",
       "author": "mattmathis",
       "authorAssociation": "COLLABORATOR",
-      "assignees": [],
+      "assignees": [
+        "mattmathis"
+      ],
       "labels": [],
       "body": "Replace all or part of section 2, \"document status\" with a new section on CCA development lifecycles.   Include the following major phases and constraints.\r\n\r\nPilot (private evaluation)\r\n - Authors MUST maintain full control and the ability to withdraw all instances\r\n - Sources and binaries are not published outside of the author's domain\r\n - It includes instrumentation for data rate, loss, delay , ECN marking, etc\r\n - And infrastructure to harvest telemetry from all instances\r\n - Continuous A/B testing against legacy algorithms\r\n - Include methods for estimating impact on other protocols and algorithms \r\n - I-D published and revised as the pilot matures\r\n\r\nPre-deployment and public evaluation\r\n - Published sources\r\n - Opt-in usage only\r\n - I-D kept up-to-date and progresses towards RFC (experimental or info status)\r\n - Authors maintain instrumentation, telemetry and continuous A/B testing for early adopters\r\n - Widespread evaluation by the broader community\r\n   - A/B testing\r\n   - Testing in challenging and unexpected network environments\r\n - Open a wiki evaluation doc\r\n  - Conformance statement for RFC5033bis (this doc)\r\n  - Summaries and references of external evaluations\r\n    - Including details necessary for others to duplicate to expand on the experiments\r\n  - If there are algorithm changes, add appropriate annotation to older reports and solicit updated results\r\n\r\nApproval for wider deployment\r\n - Requires RFC publication(s) covering:\r\n  - Algorithm spec\r\n  - Snapshot of the evaluation wiki\r\n  - Deployment guidelines\r\n     - Most important question: Is it safe for unattended use by non-experts?\r\n - Preserve (and maintain) the pre deployment implementation as a reference for future conformance testing.\r\n - Evaluation wiki lives on to capture unexpected events or problems discovered later\r\n",
       "createdAt": "2023-11-09T20:43:01Z",
-      "updatedAt": "2023-11-09T20:43:01Z",
+      "updatedAt": "2023-11-20T16:16:31Z",
       "closedAt": null,
-      "comments": []
+      "comments": [
+        {
+          "author": "martinduke",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Editors: there are several good ideas in here, but this list is very prescriptive and implies requirements that are well beyond the capabilities of many proponents.\r\n\r\nWe don't object to a rewrite of Sec 2, but these aspects would have to be toned down.\r\n\r\nAssigning to @mattmathis to see if he can produce a PR that addresses those concerns. He is welcome to close this issue if he prefers.",
+          "createdAt": "2023-11-20T16:16:22Z",
+          "updatedAt": "2023-11-20T16:16:22Z"
+        }
+      ]
     },
     {
       "number": 45,
@@ -1022,6 +1048,24 @@
       "body": "Define congestion collapse in terms of excess overhead under adverse conditions.    This is how it was defined circa 1987.\r\n\r\nRename the current \"congestion collapse\" section.",
       "createdAt": "2023-11-15T15:49:20Z",
       "updatedAt": "2023-11-15T15:49:20Z",
+      "closedAt": null,
+      "comments": []
+    },
+    {
+      "number": 47,
+      "id": "I_kwDOI7aIXc53W8n0",
+      "title": "Write IoT section",
+      "url": "https://github.com/ietf-wg-ccwg/rfc5033bis/issues/47",
+      "state": "OPEN",
+      "author": "martinduke",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [
+        "martinduke"
+      ],
+      "labels": [],
+      "body": "Section 5.1 is just a TODO to write about this.",
+      "createdAt": "2023-11-20T15:51:27Z",
+      "updatedAt": "2023-11-20T16:34:02Z",
       "closedAt": null,
       "comments": []
     }
@@ -2614,7 +2658,7 @@
       "labels": [],
       "body": "Define congestion collapse in terms of excess overhead.\r\n\r\nRename the prior congestion collapse section \"Implement full backoff\"\r\n\r\nCloses  issue #45  ",
       "createdAt": "2023-11-18T06:35:00Z",
-      "updatedAt": "2023-11-18T16:41:58Z",
+      "updatedAt": "2023-11-20T16:30:58Z",
       "baseRepository": "ietf-wg-ccwg/rfc5033bis",
       "baseRefName": "main",
       "baseRefOid": "5a4fd57e315bb86a8bbf205522098f65954d712c",
@@ -2627,7 +2671,15 @@
       "mergeCommit": {
         "oid": "41f9ffa543f484223d1912050c9ec461d8deebae"
       },
-      "comments": [],
+      "comments": [
+        {
+          "author": "martinduke",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Editors:\r\n1. This metric is very interesting, but wonder if it's really a requirement for loss recovery, not congestion control (granted, these two are often intertwined). This would put it out of scope.\r\n2. Our proposal would be to revert this, though perhaps we are misunderstanding the intent.",
+          "createdAt": "2023-11-20T16:30:58Z",
+          "updatedAt": "2023-11-20T16:30:58Z"
+        }
+      ],
       "reviews": [
         {
           "id": "PRR_kwDOI7aIXc5nm_Xm",
@@ -2668,8 +2720,80 @@
               "updatedAt": "2023-11-18T16:41:58Z"
             }
           ]
+        },
+        {
+          "id": "PRR_kwDOI7aIXc5nsRa1",
+          "commit": {
+            "abbreviatedOid": "bad7404"
+          },
+          "author": "gorryfair",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2023-11-20T12:03:03Z",
+          "updatedAt": "2023-11-20T12:03:03Z",
+          "comments": [
+            {
+              "originalPosition": 29,
+              "body": "Ar least in the X.25 networks I used, the excess traffic also caused queuing packets in nodes under flow-control/loss recovery. This made MUCH worse by delaying packets carrying routing and other network functions. You might have said this was due to the layering (transport carrying network control traffic as equals) - importnatly that part was mitigated by diffserv to prioristise network critical traffic. The buildup of traffic  was best mitigated by backoff from deadlock - increasing timers and no regenerative retransmission.",
+              "createdAt": "2023-11-20T12:03:03Z",
+              "updatedAt": "2023-11-20T12:03:04Z"
+            }
+          ]
         }
       ]
+    },
+    {
+      "number": 48,
+      "id": "PR_kwDOI7aIXc5f7pdC",
+      "title": "Small tweaks to initial part of the document",
+      "url": "https://github.com/ietf-wg-ccwg/rfc5033bis/pull/48",
+      "state": "OPEN",
+      "author": "gorryfair",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "These are all small tweaks, if they look good we should update the text.",
+      "createdAt": "2023-11-20T16:45:39Z",
+      "updatedAt": "2023-11-20T16:45:39Z",
+      "baseRepository": "ietf-wg-ccwg/rfc5033bis",
+      "baseRefName": "main",
+      "baseRefOid": "41f9ffa543f484223d1912050c9ec461d8deebae",
+      "headRepository": "ietf-wg-ccwg/rfc5033bis",
+      "headRefName": "gorryfair-patch-2",
+      "headRefOid": "a415ee99733960e092166e5387ae065b1a7f7fc8",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 49,
+      "id": "PR_kwDOI7aIXc5f7x9k",
+      "title": "This PR is a follow-up on multipath",
+      "url": "https://github.com/ietf-wg-ccwg/rfc5033bis/pull/49",
+      "state": "OPEN",
+      "author": "gorryfair",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "It closes the issue by explicitly stating the I-D describes two use- cases: One we know more about, one much less. There is no intention to add a range of other use-cases in between. I hope this calls out some of the issues and that new proposers could understand where they ought to evaluate.",
+      "createdAt": "2023-11-20T17:08:51Z",
+      "updatedAt": "2023-11-20T17:08:51Z",
+      "baseRepository": "ietf-wg-ccwg/rfc5033bis",
+      "baseRefName": "main",
+      "baseRefOid": "41f9ffa543f484223d1912050c9ec461d8deebae",
+      "headRepository": "ietf-wg-ccwg/rfc5033bis",
+      "headRefName": "gorryfair-patch-3",
+      "headRefOid": "789da1b32cba3daebe289a6704107bedbc3ffe4f",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": []
     }
   ]
 }
