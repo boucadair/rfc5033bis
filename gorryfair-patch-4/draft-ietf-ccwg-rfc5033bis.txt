@@ -6,7 +6,7 @@ CCWG                                                        M. Duke, Ed.
 Internet-Draft                                                Google LLC
 Obsoletes: 5033 (if approved)                          G. Fairhurst, Ed.
 Intended status: Best Current Practice            University of Aberdeen
-Expires: 24 May 2024                                    21 November 2023
+Expires: 25 May 2024                                    22 November 2023
 
 
               Specifying New Congestion Control Algorithms
@@ -60,7 +60,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 24 May 2024.
+   This Internet-Draft will expire on 25 May 2024.
 
 Copyright Notice
 
@@ -356,14 +356,14 @@ Table of Contents
    seek to send at different rates or when some of the flows do not last
    sufficiently long to approach asymptotic behavior.
 
-   In other contexts, and when differing congestion control alogithms
+   In other contexts, and when differing congestion control algorithms
    are used, it can be valuable to understand whether an alternate
    congestion control algorithm can induce more harm to sharing flows
    than existing defined methods.  The measure of harm is not restricted
    to the equality of capacity, but ought also to consider metrics such
-   as the latency introduced, increase in packet loss.  This evaluation
-   must assess the potential to cause starvation, including assurance
-   that a loss of all feedback (e.g., detected by expiry of a
+   as the latency introduced, or an increase in packet loss.  This
+   evaluation must assess the potential to cause starvation, including
+   assurance that a loss of all feedback (e.g., detected by expiry of a
    retransmission time out) results in backoff.
 
 3.1.5.  Short Flows
