@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2023-11-21T00:37:55.145546+00:00",
+  "timestamp": "2023-11-23T00:37:11.257025+00:00",
   "repo": "ietf-wg-ccwg/rfc5033bis",
   "labels": [
     {
@@ -1023,7 +1023,7 @@
       "labels": [],
       "body": "Replace all or part of section 2, \"document status\" with a new section on CCA development lifecycles.   Include the following major phases and constraints.\r\n\r\nPilot (private evaluation)\r\n - Authors MUST maintain full control and the ability to withdraw all instances\r\n - Sources and binaries are not published outside of the author's domain\r\n - It includes instrumentation for data rate, loss, delay , ECN marking, etc\r\n - And infrastructure to harvest telemetry from all instances\r\n - Continuous A/B testing against legacy algorithms\r\n - Include methods for estimating impact on other protocols and algorithms \r\n - I-D published and revised as the pilot matures\r\n\r\nPre-deployment and public evaluation\r\n - Published sources\r\n - Opt-in usage only\r\n - I-D kept up-to-date and progresses towards RFC (experimental or info status)\r\n - Authors maintain instrumentation, telemetry and continuous A/B testing for early adopters\r\n - Widespread evaluation by the broader community\r\n   - A/B testing\r\n   - Testing in challenging and unexpected network environments\r\n - Open a wiki evaluation doc\r\n  - Conformance statement for RFC5033bis (this doc)\r\n  - Summaries and references of external evaluations\r\n    - Including details necessary for others to duplicate to expand on the experiments\r\n  - If there are algorithm changes, add appropriate annotation to older reports and solicit updated results\r\n\r\nApproval for wider deployment\r\n - Requires RFC publication(s) covering:\r\n  - Algorithm spec\r\n  - Snapshot of the evaluation wiki\r\n  - Deployment guidelines\r\n     - Most important question: Is it safe for unattended use by non-experts?\r\n - Preserve (and maintain) the pre deployment implementation as a reference for future conformance testing.\r\n - Evaluation wiki lives on to capture unexpected events or problems discovered later\r\n",
       "createdAt": "2023-11-09T20:43:01Z",
-      "updatedAt": "2023-11-20T16:16:31Z",
+      "updatedAt": "2023-11-21T02:17:13Z",
       "closedAt": null,
       "comments": [
         {
@@ -1032,6 +1032,13 @@
           "body": "Editors: there are several good ideas in here, but this list is very prescriptive and implies requirements that are well beyond the capabilities of many proponents.\r\n\r\nWe don't object to a rewrite of Sec 2, but these aspects would have to be toned down.\r\n\r\nAssigning to @mattmathis to see if he can produce a PR that addresses those concerns. He is welcome to close this issue if he prefers.",
           "createdAt": "2023-11-20T16:16:22Z",
           "updatedAt": "2023-11-20T16:16:22Z"
+        },
+        {
+          "author": "huitema",
+          "authorAssociation": "COLLABORATOR",
+          "body": "I think it could be summarized as \"be prudent with what you deploy, or where you test.\" Which is indeed good practice.\r\n\r\nBut we should be careful to not appear as trying to police developers, because in reality we have zero police power. Advice is good, mandates are likely to be ignored and cause developers to ignore the document completely. Remember, nobody asked the IETF's permission before deploying Cubic...",
+          "createdAt": "2023-11-21T02:17:12Z",
+          "updatedAt": "2023-11-21T02:17:12Z"
         }
       ]
     },
@@ -1068,6 +1075,37 @@
       "updatedAt": "2023-11-20T16:34:02Z",
       "closedAt": null,
       "comments": []
+    },
+    {
+      "number": 52,
+      "id": "I_kwDOI7aIXc53hNml",
+      "title": "Introduce coupling between loss recovery strategies and CC",
+      "url": "https://github.com/ietf-wg-ccwg/rfc5033bis/issues/52",
+      "state": "OPEN",
+      "author": "mattmathis",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Although loss recovery is out of scope, some loss recovery design choices affect the suitability of some CCAs.  If we don't take this into account, we doom our relevance in constrained environments.   A partial list:\r\n- simple RTO only\r\n- simple fast retransmit (TCP Tahoe)\r\n- fast retransmit with Fast recovery (New Reno)\r\n- Go-bank-N\r\n- Modern SACK based\r\nIn addition the presence of some tcp features has a profound impact on appropriate CCA behavior,   For example TCP without WSCALE  is sufficiently constrained to avoid many of the hazards of concern here.   It might be appropriate to greatly relax the guidelines for transports with 64kB maximum window sizes.",
+      "createdAt": "2023-11-21T21:47:40Z",
+      "updatedAt": "2023-11-22T02:45:34Z",
+      "closedAt": null,
+      "comments": [
+        {
+          "author": "huitema",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Yes. This is another way to tackle the overhead issue.",
+          "createdAt": "2023-11-22T01:19:51Z",
+          "updatedAt": "2023-11-22T01:19:51Z"
+        },
+        {
+          "author": "huitema",
+          "authorAssociation": "COLLABORATOR",
+          "body": "\"The onset of congestion is very likely to cause packet losses and increase delays. Some loss recovery algorithms detect packet losses too soon and try to repeat packets that were not actually lost -- an example wold be algorithms relying on fixed timers. Other algorithms respond to the loss of one packet by sending many packets -- an example would be algorithms repeating whole messages if one of the packets carrying the message is lost. Such algorithms create additional traffic overhead during congestion periods, and thus increase the risk of congestion collapse. The Internet congestion events of the late 1980's were likely amplified by those two factors: TCP then did not properly compute retransmission timers [cite Lixia's paper] and reacted to packet losses by repeating all packets in flight, using a \"Go Back N\" strategy. Modern packet loss recover methods avoid these pitfalls, see [cite the RACK RFC].\"",
+          "createdAt": "2023-11-22T02:44:29Z",
+          "updatedAt": "2023-11-22T02:45:34Z"
+        }
+      ]
     }
   ],
   "pulls": [
@@ -2781,13 +2819,106 @@
       "labels": [],
       "body": "It closes the issue by explicitly stating the I-D describes two use- cases: One we know more about, one much less. There is no intention to add a range of other use-cases in between. I hope this calls out some of the issues and that new proposers could understand where they ought to evaluate.",
       "createdAt": "2023-11-20T17:08:51Z",
-      "updatedAt": "2023-11-20T17:08:51Z",
+      "updatedAt": "2023-11-21T02:23:18Z",
       "baseRepository": "ietf-wg-ccwg/rfc5033bis",
       "baseRefName": "main",
       "baseRefOid": "41f9ffa543f484223d1912050c9ec461d8deebae",
       "headRepository": "ietf-wg-ccwg/rfc5033bis",
       "headRefName": "gorryfair-patch-3",
       "headRefOid": "789da1b32cba3daebe289a6704107bedbc3ffe4f",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOI7aIXc5nxXZk",
+          "commit": {
+            "abbreviatedOid": "789da1b"
+          },
+          "author": "huitema",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "Looks good.",
+          "createdAt": "2023-11-21T02:23:18Z",
+          "updatedAt": "2023-11-21T02:23:18Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 50,
+      "id": "PR_kwDOI7aIXc5gCkYW",
+      "title": "Harm v Fairness",
+      "url": "https://github.com/ietf-wg-ccwg/rfc5033bis/pull/50",
+      "state": "OPEN",
+      "author": "gorryfair",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Starting to unpick where equal access is important and where harm for others becomes important.\r\nIf merged, this closes #5.",
+      "createdAt": "2023-11-21T16:02:28Z",
+      "updatedAt": "2023-11-22T07:41:59Z",
+      "baseRepository": "ietf-wg-ccwg/rfc5033bis",
+      "baseRefName": "main",
+      "baseRefOid": "41f9ffa543f484223d1912050c9ec461d8deebae",
+      "headRepository": "ietf-wg-ccwg/rfc5033bis",
+      "headRefName": "gorryfair-patch-4",
+      "headRefOid": "e7c25bdd4933bee4dc2ce9684ef4e249889911e0",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOI7aIXc5n6iqD",
+          "commit": {
+            "abbreviatedOid": "6d2a291"
+          },
+          "author": "huitema",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "Looks good, minor editing comments",
+          "createdAt": "2023-11-22T01:14:22Z",
+          "updatedAt": "2023-11-22T01:16:31Z",
+          "comments": [
+            {
+              "originalPosition": 26,
+              "body": "typo: algorithms",
+              "createdAt": "2023-11-22T01:14:23Z",
+              "updatedAt": "2023-11-22T01:16:31Z"
+            },
+            {
+              "originalPosition": 30,
+              "body": "\"or\" the increase in packet loss?",
+              "createdAt": "2023-11-22T01:15:36Z",
+              "updatedAt": "2023-11-22T01:16:31Z"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 51,
+      "id": "PR_kwDOI7aIXc5gCp-r",
+      "title": "Add BCP on RTO and Backoff",
+      "url": "https://github.com/ietf-wg-ccwg/rfc5033bis/pull/51",
+      "state": "OPEN",
+      "author": "gorryfair",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2023-11-21T16:11:48Z",
+      "updatedAt": "2023-11-21T16:12:39Z",
+      "baseRepository": "ietf-wg-ccwg/rfc5033bis",
+      "baseRefName": "main",
+      "baseRefOid": "41f9ffa543f484223d1912050c9ec461d8deebae",
+      "headRepository": "ietf-wg-ccwg/rfc5033bis",
+      "headRefName": "gorryfair-patch-5",
+      "headRefOid": "f1135a5514fc47ed314046fb5305e0a1161c15ae",
       "closedAt": null,
       "mergedAt": null,
       "mergedBy": null,
