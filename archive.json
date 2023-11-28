@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2023-11-26T00:39:43.285128+00:00",
+  "timestamp": "2023-11-28T00:37:46.428794+00:00",
   "repo": "ietf-wg-ccwg/rfc5033bis",
   "labels": [
     {
@@ -1088,7 +1088,7 @@
       "labels": [],
       "body": "Although loss recovery is out of scope, some loss recovery design choices affect the suitability of some CCAs.  If we don't take this into account, we doom our relevance in constrained environments.   A partial list:\r\n- simple RTO only\r\n- simple fast retransmit (TCP Tahoe)\r\n- fast retransmit with Fast recovery (New Reno)\r\n- Go-bank-N\r\n- Modern SACK based\r\nIn addition the presence of some tcp features has a profound impact on appropriate CCA behavior,   For example TCP without WSCALE  is sufficiently constrained to avoid many of the hazards of concern here.   It might be appropriate to greatly relax the guidelines for transports with 64kB maximum window sizes.",
       "createdAt": "2023-11-21T21:47:40Z",
-      "updatedAt": "2023-11-22T02:45:34Z",
+      "updatedAt": "2023-11-27T14:44:52Z",
       "closedAt": null,
       "comments": [
         {
@@ -1104,6 +1104,20 @@
           "body": "\"The onset of congestion is very likely to cause packet losses and increase delays. Some loss recovery algorithms detect packet losses too soon and try to repeat packets that were not actually lost -- an example wold be algorithms relying on fixed timers. Other algorithms respond to the loss of one packet by sending many packets -- an example would be algorithms repeating whole messages if one of the packets carrying the message is lost. Such algorithms create additional traffic overhead during congestion periods, and thus increase the risk of congestion collapse. The Internet congestion events of the late 1980's were likely amplified by those two factors: TCP then did not properly compute retransmission timers [cite Lixia's paper] and reacted to packet losses by repeating all packets in flight, using a \"Go Back N\" strategy. Modern packet loss recover methods avoid these pitfalls, see [cite the RACK RFC].\"",
           "createdAt": "2023-11-22T02:44:29Z",
           "updatedAt": "2023-11-22T02:45:34Z"
+        },
+        {
+          "author": "nealcardwell",
+          "authorAssociation": "NONE",
+          "body": ">  It might be appropriate to greatly relax the guidelines for transports with 64kB maximum window sizes.\r\n\r\nI would argue against that. Even a 64KByte maximum window size can cause massive buffer bloat at the data rates of dial-up modems or LPWAN networks, which constrained/IoT devices might be using:\r\n\r\n```\r\n64*1024*8bits / 56kbps > 9.3 secs\r\n```\r\n\r\nhttps://en.wikipedia.org/wiki/Low-power_wide-area_network\r\n\"The LPWAN data rate ranges from 0.3 kbit/s to 50 kbit/s per channel.\"\r\n\r\n",
+          "createdAt": "2023-11-26T15:23:11Z",
+          "updatedAt": "2023-11-27T14:44:52Z"
+        },
+        {
+          "author": "mattmathis",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Yes, even with a constrained window, a RTT clamp should be required.\r\n",
+          "createdAt": "2023-11-27T14:42:45Z",
+          "updatedAt": "2023-11-27T14:42:45Z"
         }
       ]
     }
