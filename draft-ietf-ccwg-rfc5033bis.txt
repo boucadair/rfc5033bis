@@ -6,7 +6,7 @@ CCWG                                                        M. Duke, Ed.
 Internet-Draft                                                Google LLC
 Obsoletes: 5033 (if approved)                          G. Fairhurst, Ed.
 Intended status: Best Current Practice            University of Aberdeen
-Expires: 21 May 2024                                    18 November 2023
+Expires: 15 June 2024                                   13 December 2023
 
 
               Specifying New Congestion Control Algorithms
@@ -60,7 +60,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 21 May 2024.
+   This Internet-Draft will expire on 15 June 2024.
 
 Copyright Notice
 
@@ -124,12 +124,12 @@ Table of Contents
 1.  Introduction
 
    This document provides guidelines for the IETF to use when evaluating
-   suggested congestion control algorithms that significantly differ
-   from the general congestion control principles outlined in [RFC2914].
-   The guidance is intended to be useful to authors proposing alternate
-   congestion control and for the IETF community when evaluating whether
-   a proposal is appropriate for publication in the RFC series and for
-   deployment in the Internet.
+   suggested congestion control algorithms that differ from the general
+   congestion control principles outlined in [RFC2914].  The guidance is
+   intended to be useful to authors proposing alternate congestion
+   control and for the IETF community when evaluating whether a proposal
+   is appropriate for publication in the RFC series and for deployment
+   in the Internet.
 
    This document updates the similarly titled [RFC5033] that was
    published in 2007 as a Best Current Practice to evaluate new
@@ -145,9 +145,10 @@ Table of Contents
    include DCCP, QUIC, and beyond.  Some congestion control algorithm
    proponents now have the opportunity to test and deploy at scale
    without IETF review.  There is more interest in specialized use cases
-   such as data centers and real-time protocols.  Finally, the community
-   has gained much more experience with indications of congestion beyond
-   packet loss.
+   such as data centers, and in support for a variety of upper layer
+   protocols/applications, e.g., real-time protocols.  Finally, the
+   community has gained much more experience with indications of
+   congestion beyond packet loss.
 
    Multiple congestion control algorithms have been developed outside of
    the IETF, including at least two that saw large scale deployment:
@@ -204,27 +205,29 @@ Table of Contents
    control algorithms are expected to be published as "Experimental"
    RFCs until such time that the community better understands the
    solution space.  Traditionally, the meaning of "Experimental" status
-   has varied in its use and interpretation.  As part of this document
-   we define two classes of congestion control proposals that can be
-   published with the "Experimental" status.  The first class includes
-   algorithms that are judged to be safe to deploy for best-effort
-   traffic in the global Internet and further investigated in that
-   environment.  The second class includes algorithms that, while
-   promising, are not deemed safe enough for widespread deployment as
-   best-effort traffic on the Internet, but are being specified to
-   facilitate investigations in simulation, testbeds, or controlled
-   environments.  The second class can also include algorithms where the
-   IETF does not yet have sufficient understanding to decide if the
-   algorithm is or is not safe for deployment on the Internet.
+   has varied in its use and interpretation.
+
+   As part of this document we define two classes of congestion control
+   proposals that can be published with the "Experimental" status.  The
+   first class includes algorithms that are judged to be safe to deploy
+   for best-effort traffic in the global Internet and further
+   investigated in that environment.  The second class includes
+   algorithms that, while promising, are not yet deemed safe enough for
+   widespread deployment as best-effort traffic on the Internet, but are
+   being specified to facilitate investigations in simulation, testbeds,
+   or controlled environments.  The second class can also include
+   algorithms where the IETF does not yet have sufficient understanding
+   to decide if the algorithm is or is not safe for deployment on the
+   Internet.
 
    Each alternate congestion control algorithm published is required to
    include a statement in the abstract indicating whether or not the
    proposal is considered safe for use on the Internet.  Each alternate
    congestion control algorithm published is also required to include a
    statement in the abstract describing environments where the protocol
-   is not recommended for deployment.  There may be environments where
-   the protocol is deemed _safe_ for use, but still is not _recommended_
-   for use because it does not perform well for the user.
+   is not recommended for deployment.  There can be environments where
+   the protocol is deemed _safe_ for use, but it is still is not
+   _recommended_ for use because it does not perform well for the user.
 
    As examples of such statements, [RFC3649] specifying HighSpeed TCP
    includes a statement in the abstract stating that the proposal is
@@ -249,10 +252,11 @@ Table of Contents
    alternate congestion control mechanism for the benefit of the IETF
    and IRTF communities.  This is particularly encouraged in order to
    ensure algorithm specifications are widely disseminated to facilitate
-   further research.  Such an internet-draft could also be considered as
-   an Informational RFC, as a first step in the process towards
-   standardization.  Such a document would be expected to carry an
-   explicit warning against using the scheme in the global Internet.
+   further research.  Such an internet-draft could also be considered
+   for publication as an Informational RFC, as a first step in the
+   process towards standardization.  Such a document would be expected
+   to carry an explicit warning against using the scheme in the global
+   Internet.
 
    Note: we are not changing the RFC publication process for non-IETF
    produced documents (e.g., those from the IRTF or Independent
