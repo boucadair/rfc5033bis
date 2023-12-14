@@ -6,7 +6,7 @@ CCWG                                                        M. Duke, Ed.
 Internet-Draft                                                Google LLC
 Obsoletes: 5033 (if approved)                          G. Fairhurst, Ed.
 Intended status: Best Current Practice            University of Aberdeen
-Expires: 15 June 2024                                   13 December 2023
+Expires: 16 June 2024                                   14 December 2023
 
 
               Specifying New Congestion Control Algorithms
@@ -60,7 +60,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 15 June 2024.
+   This Internet-Draft will expire on 16 June 2024.
 
 Copyright Notice
 
@@ -98,15 +98,17 @@ Table of Contents
    4.  General Use
      4.1.  Wired Networks
      4.2.  Wireless networks
+     4.3.  Tail-drop queues
    5.  Special Cases
-     5.1.  Internet of Things
-     5.2.  Satellite
-     5.3.  Misbehaving Nodes
-     5.4.  Tunnel Behavior
-     5.5.  Extreme Packet Reordering
-     5.6.  Transient Events
-       5.6.1.  Sudden changes in Path
-     5.7.  Multipath
+     5.1.  Active Queue Management (AQM)
+     5.2.  Internet of Things
+     5.3.  Satellite
+     5.4.  Misbehaving Nodes
+     5.5.  Tunnel Behavior
+     5.6.  Extreme Packet Reordering
+     5.7.  Transient Events
+       5.7.1.  Sudden changes in Path
+     5.8.  Multipath
    6.  Security Considerations
    7.  IANA Considerations
    8.  References
@@ -114,6 +116,7 @@ Table of Contents
      8.2.  Informative References
    Acknowledgments
    Evolution of RFC5033bis
+     Since draft-ietf-ccwg-rfc5033bis-02
      Since draft-ietf-ccwg-rfc5033bis-01
      Since draft-ietf-ccwg-rfc5033bis-00
      Since draft-scheffenegger-congress-rfc5033bis-00
@@ -473,6 +476,13 @@ Table of Contents
    times.  See [RFC3819] and Section 16 of [Tools] for further
    discussion of wireless properties.
 
+4.3.  Tail-drop queues
+
+   Congestion control performance is affected by the queue discipline
+   applied at the bottleneck link.  The default queue discipline that
+   MUST be evaluated is drop-tail, First In First Out (FIFO).  See
+   Section 5.1 for evaluation of other queue disciplines.
+
 5.  Special Cases
 
    The criteria in Section 3 will be evaluated in the following
@@ -484,16 +494,32 @@ Table of Contents
    expose the properties of operation in these scenarios, as they are
    statistically small.
 
-5.1.  Internet of Things
+5.1.  Active Queue Management (AQM)
+
+   Proposals SHOULD be evaluated under a variety of bottleneck queue
+   disciplines.  At a minimum, a proposal should reason about an
+   algorithm's response to various AQMs.  Simulation or empirical
+   results are, of course, valuable.
+
+   Note that evaluation of AQM techniques -- as opposed to their impact
+   on specific congestion control proposals -- is out of scope of this
+   document.  [RFC7567] describes design considerations for AQMs.
+
+   Among the AQM techniques that might have an impact on a congestion
+   control algorithm are FQ-CoDel [RFC8290]; Proportional Integral
+   Controller Enhanced (PIE) [RFC8033]; and Low Latency, Low Loss, and
+   Scalable Throughput (L4S) [RFC9332].
+
+5.2.  Internet of Things
 
    (TODO: Write this section)
 
-5.2.  Satellite
+5.3.  Satellite
 
    Satellite links often have delays longer than typical for wired paths
    [RFC2488] and high delay bandwidth products [RFC3649].
 
-5.3.  Misbehaving Nodes
+5.4.  Misbehaving Nodes
 
    The proposal should explore how the alternate congestion control
    mechanism performs with non-compliant senders, receivers, or routers.
@@ -509,17 +535,17 @@ Table of Contents
    routers; misbehaving middleboxes; and the potential use of Quick-
    Start to attack routers or to tie up available Quick-Start bandwidth.
 
-5.4.  Tunnel Behavior
+5.5.  Tunnel Behavior
 
    When the proposal relies on explicit signals from the path, the
    effect of traffic passing through the tunnel -- where routers may not
    be aware of the underlying flow -- MUST be considered.
 
-5.5.  Extreme Packet Reordering
+5.6.  Extreme Packet Reordering
 
    [RFC4653] discusses the effect of extreme packet reordering.
 
-5.6.  Transient Events
+5.7.  Transient Events
 
    The proposal should consider how the alternate congestion control
    mechanism would perform in the presence of transient events such as
@@ -530,7 +556,7 @@ Table of Contents
    As an example from an Experimental RFC, response to transient events
    is discussed in Section 9.2 of [RFC4782] (Quick-Start).
 
-5.6.1.  Sudden changes in Path
+5.7.1.  Sudden changes in Path
 
    An IETF transport is not tied to a specific Internet path.  The set
    of routers forming a path can and do change with time, this will also
@@ -543,7 +569,7 @@ Table of Contents
    properties of that path can vary, with similar impacts on congestion
    control
 
-5.7.  Multipath
+5.8.  Multipath
 
    Multipath transport protocols permit more than one path to be
    differentiated and used by a single connection at the sender.  A
@@ -706,10 +732,27 @@ Table of Contents
               Control Mechanisms", RFC 5166, DOI 10.17487/RFC5166, March
               2008, <https://www.rfc-editor.org/rfc/rfc5166>.
 
+   [RFC7567]  Baker, F., Ed. and G. Fairhurst, Ed., "IETF
+              Recommendations Regarding Active Queue Management",
+              BCP 197, RFC 7567, DOI 10.17487/RFC7567, July 2015,
+              <https://www.rfc-editor.org/rfc/rfc7567>.
+
    [RFC7765]  Hurtig, P., Brunstrom, A., Petlund, A., and M. Welzl, "TCP
               and Stream Control Transmission Protocol (SCTP) RTO
               Restart", RFC 7765, DOI 10.17487/RFC7765, February 2016,
               <https://www.rfc-editor.org/rfc/rfc7765>.
+
+   [RFC8033]  Pan, R., Natarajan, P., Baker, F., and G. White,
+              "Proportional Integral Controller Enhanced (PIE): A
+              Lightweight Control Scheme to Address the Bufferbloat
+              Problem", RFC 8033, DOI 10.17487/RFC8033, February 2017,
+              <https://www.rfc-editor.org/rfc/rfc8033>.
+
+   [RFC8290]  Hoeiland-Joergensen, T., McKenney, P., Taht, D., Gettys,
+              J., and E. Dumazet, "The Flow Queue CoDel Packet Scheduler
+              and Active Queue Management Algorithm", RFC 8290,
+              DOI 10.17487/RFC8290, January 2018,
+              <https://www.rfc-editor.org/rfc/rfc8290>.
 
    [RFC8298]  Johansson, I. and Z. Sarker, "Self-Clocked Rate Adaptation
               for Multimedia", RFC 8298, DOI 10.17487/RFC8298, December
@@ -729,6 +772,12 @@ Table of Contents
               Deployment (A Bestiary of Roads Not Taken)", RFC 9049,
               DOI 10.17487/RFC9049, June 2021,
               <https://www.rfc-editor.org/rfc/rfc9049>.
+
+   [RFC9332]  De Schepper, K., Briscoe, B., Ed., and G. White, "Dual-
+              Queue Coupled Active Queue Management (AQM) for Low
+              Latency, Low Loss, and Scalable Throughput (L4S)",
+              RFC 9332, DOI 10.17487/RFC9332, January 2023,
+              <https://www.rfc-editor.org/rfc/rfc9332>.
 
    [Tools]    Floyd, S. and E. Kohler, "Tools for the Evaluation of
               Simulation and Testbed Scenarios", Work in Progress , July
@@ -755,6 +804,12 @@ Acknowledgments
    *  Dave Taht
 
 Evolution of RFC5033bis
+
+Since draft-ietf-ccwg-rfc5033bis-02
+
+   *  Added discussion of AQM response
+
+   *  Editorial changes
 
 Since draft-ietf-ccwg-rfc5033bis-01
 
