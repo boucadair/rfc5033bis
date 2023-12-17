@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2023-12-14T00:37:17.310585+00:00",
+  "timestamp": "2023-12-17T00:40:46.974710+00:00",
   "repo": "ietf-wg-ccwg/rfc5033bis",
   "labels": [
     {
@@ -189,7 +189,7 @@
       "id": "I_kwDOI7aIXc5exgu2",
       "title": "include guidance from rfc7141",
       "url": "https://github.com/ietf-wg-ccwg/rfc5033bis/issues/3",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "rscheff",
       "authorAssociation": "COLLABORATOR",
       "assignees": [
@@ -198,8 +198,8 @@
       "labels": [],
       "body": "rfc7141 partially updates rfc5033; include relevant sections in the -bis document",
       "createdAt": "2023-02-17T22:36:13Z",
-      "updatedAt": "2023-12-13T19:31:44Z",
-      "closedAt": null,
+      "updatedAt": "2023-12-15T16:30:53Z",
+      "closedAt": "2023-12-15T16:30:53Z",
       "comments": [
         {
           "author": "martinduke",
@@ -283,7 +283,7 @@
       "id": "I_kwDOI7aIXc5eyT7H",
       "title": "What does impact on transport protocols mean?",
       "url": "https://github.com/ietf-wg-ccwg/rfc5033bis/issues/5",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "huitema",
       "authorAssociation": "COLLABORATOR",
       "assignees": [
@@ -292,8 +292,8 @@
       "labels": [],
       "body": "The Guidelines section asks developers of new congestion control algorithms to discuss the \"Impact on Standard TCP, SCTP [[RFC2960](https://rscheff.github.io/rfc5033bis/draft-scheffenegger-congress-rfc5033bis.html#RFC2960)], and DCCP [[RFC4340](https://rscheff.github.io/rfc5033bis/draft-scheffenegger-congress-rfc5033bis.html#RFC4340)].\" Maybe I am overly sensitive, but this way of discussing the issue feels dated, from a time when transport and congestion control where specified jointly. I think that ceased to be the case many years ago, for example with implementations of TCP providing choices between multiple congestion algorithms. (Indeed, DCCP itself provides a choice between two algorithms.) The Bis draft should probably present the issue differently.",
       "createdAt": "2023-02-18T07:37:45Z",
-      "updatedAt": "2023-10-18T06:44:30Z",
-      "closedAt": null,
+      "updatedAt": "2023-12-16T13:01:58Z",
+      "closedAt": "2023-12-16T13:01:58Z",
       "comments": [
         {
           "author": "NicoKos",
@@ -377,7 +377,7 @@
       "id": "I_kwDOI7aIXc5eyUqp",
       "title": "Active Queue Management was not common back then",
       "url": "https://github.com/ietf-wg-ccwg/rfc5033bis/issues/7",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "huitema",
       "authorAssociation": "COLLABORATOR",
       "assignees": [
@@ -386,8 +386,8 @@
       "labels": [],
       "body": "The guideline section discusses \"Investigating a Range of Environments\", with a focus especially on \"Random Early Detection (RED) [[FJ03](https://rscheff.github.io/rfc5033bis/draft-scheffenegger-congress-rfc5033bis.html#FJ03)] and Drop-Tail.\" The IETF and the IRTF have produced several different proposals for Active Queue management, with somewhat different characteristics. Interestingly, there is a tension there between developing Queue Management that \"plays well\" with existing congestion control algorithms, and developing congestion control algorithms that \"take advantage\" of AQM. Not sure what to say there, but at a minimum we should develop expectations about \"signals\" produced by AQM (e.g., the ECN markings of L4S) and reaction by congestion control algorithms.\r\n\r\nTo go further, the could be a discussion of \"honest signals\", such as delays, that are very hard to \"fake\" in routing nodes, other signals such as ECN marks that could be produced by the network at very little cost, and packet losses that fall kind of in between. But we are not writing for the IRTF, so this could be kept brief.",
       "createdAt": "2023-02-18T07:52:23Z",
-      "updatedAt": "2023-11-20T16:09:30Z",
-      "closedAt": null,
+      "updatedAt": "2023-12-14T17:25:57Z",
+      "closedAt": "2023-12-14T17:25:57Z",
       "comments": [
         {
           "author": "NicoKos",
@@ -487,7 +487,7 @@
       "id": "I_kwDOI7aIXc5eyXQh",
       "title": "The tension between fairness and scaling",
       "url": "https://github.com/ietf-wg-ccwg/rfc5033bis/issues/9",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "huitema",
       "authorAssociation": "COLLABORATOR",
       "assignees": [
@@ -496,8 +496,8 @@
       "labels": [],
       "body": "One of the guidelines is \"Fairness within the Alternate Congestion Control Algorithm\". This a great consideration, but behind that are quite a few problems. The classic fairness evaluation derives from the equation about asymptotic behavior drawn by Matt Mathis, which end up requiring a non linear response to the frequency of a control signal such as packet loss or ECN marks. There are of course two problems. First, time scale, because many connections don't last long enough to approach asymptotic behavior. Second, scaling, as discussed for example in RFC3649. If an algorithm requires ever increasing spacing between control events to sustain larger data rates, then the control loop becomes very long, or, in the case of packet losses very noisy as \"true\" control events get intermixed with random losses.\r\n\r\nIn contrast, algorithms with linear response scale very well, but do not naturally provide fairness. Which is kind of a bummer, and also a research topic. I think the Bis draft will have to recognize that tension somehow, and encourage experimentation.",
       "createdAt": "2023-02-18T08:36:59Z",
-      "updatedAt": "2023-10-16T15:19:17Z",
-      "closedAt": null,
+      "updatedAt": "2023-12-16T13:01:58Z",
+      "closedAt": "2023-12-16T13:01:58Z",
       "comments": []
     },
     {
@@ -505,7 +505,7 @@
       "id": "I_kwDOI7aIXc5eyYAL",
       "title": "Should we say something about short duration connections?",
       "url": "https://github.com/ietf-wg-ccwg/rfc5033bis/issues/10",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "huitema",
       "authorAssociation": "COLLABORATOR",
       "assignees": [
@@ -514,8 +514,8 @@
       "labels": [],
       "body": "In the Internet, most connections never exit Slow-Start. RFC 5033 kind of explicitly focuses on the long duration connections, because at the time of writing the accepted rule was that the 10% long duration connections were were causing 90% of traffic. I don't know whether that's still true.",
       "createdAt": "2023-02-18T08:51:33Z",
-      "updatedAt": "2023-09-18T15:25:34Z",
-      "closedAt": null,
+      "updatedAt": "2023-12-16T12:55:52Z",
+      "closedAt": "2023-12-16T12:55:52Z",
       "comments": [
         {
           "author": "VMatrix1900",
@@ -531,7 +531,7 @@
       "id": "I_kwDOI7aIXc5fSKC5",
       "title": "Keep flows desynchronized during congestion",
       "url": "https://github.com/ietf-wg-ccwg/rfc5033bis/issues/11",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "rscheff",
       "authorAssociation": "COLLABORATOR",
       "assignees": [
@@ -540,8 +540,8 @@
       "labels": [],
       "body": "When queue saturation happens, aim to keep CC reaction desynchronized as much as possible - with tail drop this is not really possible, but AQM especially with ECN may be able to do this.",
       "createdAt": "2023-02-24T13:06:50Z",
-      "updatedAt": "2023-12-13T21:19:05Z",
-      "closedAt": null,
+      "updatedAt": "2023-12-15T16:39:52Z",
+      "closedAt": "2023-12-15T16:39:52Z",
       "comments": [
         {
           "author": "huitema",
@@ -577,6 +577,13 @@
           "body": "I think I agree with @huitema's original point here. AQM design is not in scope of this document, and purely endpoint-based approaches to this problem are bleeding-edge at best.\r\n\r\nA proposal that did this would hopefully get \"bonus points\" somehow, but I believe this is covered under the general heading of \"how well does this proposal compete with itself?\"",
           "createdAt": "2023-12-13T21:19:04Z",
           "updatedAt": "2023-12-13T21:19:04Z"
+        },
+        {
+          "author": "martinduke",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Closing this with no action, as existing criteria cover it as describe above.",
+          "createdAt": "2023-12-15T16:39:52Z",
+          "updatedAt": "2023-12-15T16:39:52Z"
         }
       ]
     },
@@ -693,7 +700,7 @@
       "id": "I_kwDOI7aIXc5vxaEr",
       "title": "We ought to explain the importance of starvation prevention more than the measure of fairness",
       "url": "https://github.com/ietf-wg-ccwg/rfc5033bis/issues/21",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "gorryfair",
       "authorAssociation": "COLLABORATOR",
       "assignees": [
@@ -704,8 +711,8 @@
       ],
       "body": "Issue possibly related to #9, but more focussed on refocus away from a fairness evaluation.\r\n\r\nWhen a transport uses a path to send packets (i.e. a flow), this can impact other Internet flows (possibly from or to other endpoints) that share the capacity of any common network device or link (i.e., are multiplexed) along the path.  In turn, this can result in variation in capacity, loss, or additional latency. Transports and network layer scheduling can be designed to offer fairness between sharing flows. This comes with both strengths and weaknesses - it can reduce collateral damage to other flows; but it also can motivate the use of additional flows to gain additional network resource. \r\n\r\n* Transport proposals need to be evaluate and avoid inducing flow starvation to the other flows that share resources along the path they use.\r\n* Transports proposals need to be evaluate and ensure they treat a loss of all feedback (e.g., expiry of a retransmission time out) as an indication of persistent congestion.",
       "createdAt": "2023-08-31T10:16:35Z",
-      "updatedAt": "2023-10-16T15:19:00Z",
-      "closedAt": null,
+      "updatedAt": "2023-12-16T13:01:59Z",
+      "closedAt": "2023-12-16T13:01:59Z",
       "comments": [
         {
           "author": "martinduke",
@@ -810,7 +817,7 @@
       "labels": [],
       "body": "Delay based congestion control protocols are making an assumption that the observed RTT is the sum of a constant \"min delay\" and a variable queuing delay. This assumption may not be valid on wireless links, as delays vary when the distance between mobile endpoint and base station increases, or when changing transmission condition cause the radios to adopt different modulation and coding strategies. I suspect we also have these \"variable delays\" in satellite services, especially when using constellations of low orbit satellites.\r\n\r\nThe state of the art is not very good. BBR for example recognizes its dependency on accurate estimate of the min RTT, but has to resort to some kind of periodic reset if measurements of RTT kept over RTT min for 10 seconds -- which is both quite long for some apps, and quite annoying for real time apps suffering a transmission issue every ten seconds. LEDBAT++ does something similar.\r\n\r\nI think these \"variable delays\" link are good candidates for \"special case\" links, to be mentioned in a separate section.",
       "createdAt": "2023-09-05T18:27:23Z",
-      "updatedAt": "2023-10-18T00:39:55Z",
+      "updatedAt": "2023-12-15T16:46:36Z",
       "closedAt": null,
       "comments": [
         {
@@ -854,6 +861,13 @@
           "body": "I suggest the language \"non stationary minimum delay\" to encompass all causes  that resemble some form of  route or path change, explicitly including LEO and mobile motion.\r\n\r\nIt doesn't really cover link layer re transmissions or delays caused by link scheduling algorithms, but these are short term variations that are more likely to be  statistically similar to IP queuing delay.   I would  use the term \"hidden queues\" to refer to unmanaged queues that (almost) never incur significant backlog but do occasionally cause jitter and generally can not be observed at the IP queuing layer.\r\n",
           "createdAt": "2023-10-18T00:39:54Z",
           "updatedAt": "2023-10-18T00:39:54Z"
+        },
+        {
+          "author": "martinduke",
+          "authorAssociation": "COLLABORATOR",
+          "body": "@gorryfair will add something in Sec 5 (\"Special Cases\")",
+          "createdAt": "2023-12-15T16:46:35Z",
+          "updatedAt": "2023-12-15T16:46:35Z"
         }
       ]
     },
@@ -984,7 +998,7 @@
       "id": "I_kwDOI7aIXc52EoO-",
       "title": "Don't Panic!",
       "url": "https://github.com/ietf-wg-ccwg/rfc5033bis/issues/41",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "martinduke",
       "authorAssociation": "COLLABORATOR",
       "assignees": [
@@ -995,8 +1009,8 @@
       ],
       "body": "Add some text to indicate that proponents don't need a complete report on all the criteria before coming to IETF. They can arrive having thought about these problems a little and have a willingness to do the work implied in this draft.",
       "createdAt": "2023-11-07T09:35:12Z",
-      "updatedAt": "2023-11-20T15:14:53Z",
-      "closedAt": null,
+      "updatedAt": "2023-12-15T16:48:06Z",
+      "closedAt": "2023-12-15T16:48:06Z",
       "comments": []
     },
     {
@@ -1084,7 +1098,7 @@
       "id": "I_kwDOI7aIXc53W8n0",
       "title": "Write IoT section",
       "url": "https://github.com/ietf-wg-ccwg/rfc5033bis/issues/47",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "martinduke",
       "authorAssociation": "COLLABORATOR",
       "assignees": [
@@ -1093,8 +1107,8 @@
       "labels": [],
       "body": "Section 5.1 is just a TODO to write about this.",
       "createdAt": "2023-11-20T15:51:27Z",
-      "updatedAt": "2023-11-20T16:34:02Z",
-      "closedAt": null,
+      "updatedAt": "2023-12-15T16:51:42Z",
+      "closedAt": "2023-12-15T16:51:42Z",
       "comments": []
     },
     {
@@ -1102,15 +1116,15 @@
       "id": "I_kwDOI7aIXc53hNml",
       "title": "Introduce coupling between loss recovery strategies and CC",
       "url": "https://github.com/ietf-wg-ccwg/rfc5033bis/issues/52",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "mattmathis",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "Although loss recovery is out of scope, some loss recovery design choices affect the suitability of some CCAs.  If we don't take this into account, we doom our relevance in constrained environments.   A partial list:\r\n- simple RTO only\r\n- simple fast retransmit (TCP Tahoe)\r\n- fast retransmit with Fast recovery (New Reno)\r\n- Go-bank-N\r\n- Modern SACK based\r\nIn addition the presence of some tcp features has a profound impact on appropriate CCA behavior,   For example TCP without WSCALE  is sufficiently constrained to avoid many of the hazards of concern here.   It might be appropriate to greatly relax the guidelines for transports with 64kB maximum window sizes.",
       "createdAt": "2023-11-21T21:47:40Z",
-      "updatedAt": "2023-11-27T14:44:52Z",
-      "closedAt": null,
+      "updatedAt": "2023-12-15T16:54:28Z",
+      "closedAt": "2023-12-15T16:54:27Z",
       "comments": [
         {
           "author": "huitema",
@@ -1139,6 +1153,46 @@
           "body": "Yes, even with a constrained window, a RTT clamp should be required.\r\n",
           "createdAt": "2023-11-27T14:42:45Z",
           "updatedAt": "2023-11-27T14:42:45Z"
+        },
+        {
+          "author": "martinduke",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Editors: @gorryfair is going to paste this text into his advice document, but this seems tangential to the purpose of 5033bis",
+          "createdAt": "2023-12-15T16:54:27Z",
+          "updatedAt": "2023-12-15T16:54:27Z"
+        }
+      ]
+    },
+    {
+      "number": 60,
+      "id": "I_kwDOI7aIXc55qd-5",
+      "title": "Ought we to mention ECN?",
+      "url": "https://github.com/ietf-wg-ccwg/rfc5033bis/issues/60",
+      "state": "OPEN",
+      "author": "gorryfair",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [
+        "gorryfair"
+      ],
+      "labels": [],
+      "body": "I'm separating AQM from ECN, although ECN relies on AQM design and deployment - ECN can be a force for good when detecting bottlenecks and latency - aka RFC 8087.",
+      "createdAt": "2023-12-14T08:16:26Z",
+      "updatedAt": "2023-12-15T17:10:54Z",
+      "closedAt": null,
+      "comments": [
+        {
+          "author": "huitema",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Well, yes. ECN, by itself, is one of the signals that can be used by CC algorithms, together with packet loss, delay variation, and packet acks (input to bandwidth measurement). Makes sense to separate it.\r\n\r\nHowever, the L4S folks have introduced a tight coupling between a very specific use of ECN in the L4S AQM, and a fine grain mandate of the expected behavior of the CCA. And I cringe each time I read their dual queue formula based on the asymptotic limit of Reno -- but not Cubic. I wish we could walk that back, or describe it in more neutral terms. With L4S, ECT(1) is a signal from the sending host to the network that CE marks should be apply at incipient congestion, instead of waiting for actual loss-generating queue buildup as in RFC 3168. Maybe that should be true even for algorithms that are not described in L4S.\r\n\r\nOf course, we have to deal with what we have. Maybe we should just quote all the relevant RFCs, and denote the difference between ECT(1)/EC and ECT(0)/EC. Senders using ECT(1) should consider that the rate of CE marking signals the intensity of the congestion, while senders using ECT(0) should consider individual CE marks as denoting actual congestion. ",
+          "createdAt": "2023-12-15T02:04:48Z",
+          "updatedAt": "2023-12-15T02:04:48Z"
+        },
+        {
+          "author": "gorryfair",
+          "authorAssociation": "COLLABORATOR",
+          "body": "I think the ECN text ought to approach with something very generic like setting ECT can provide nice properties [RFC8087], but comes with requirements for reacting to ECN-CE marking. This reaction to ECN-CE marks needs to be evaluated to ensure this conforms with the style of ECN being used. I'll make a PR.",
+          "createdAt": "2023-12-15T17:10:53Z",
+          "updatedAt": "2023-12-15T17:10:53Z"
         }
       ]
     }
@@ -2891,24 +2945,28 @@
       "id": "PR_kwDOI7aIXc5gCkYW",
       "title": "Harm v Fairness",
       "url": "https://github.com/ietf-wg-ccwg/rfc5033bis/pull/50",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "gorryfair",
       "authorAssociation": "COLLABORATOR",
-      "assignees": [],
+      "assignees": [
+        "gorryfair"
+      ],
       "labels": [],
       "body": "Starting to unpick where equal access is important and where harm for others becomes important.\r\nIf merged, this closes #5.",
       "createdAt": "2023-11-21T16:02:28Z",
-      "updatedAt": "2023-11-22T07:41:59Z",
+      "updatedAt": "2023-12-16T13:01:57Z",
       "baseRepository": "ietf-wg-ccwg/rfc5033bis",
       "baseRefName": "main",
       "baseRefOid": "41f9ffa543f484223d1912050c9ec461d8deebae",
       "headRepository": "ietf-wg-ccwg/rfc5033bis",
       "headRefName": "gorryfair-patch-4",
-      "headRefOid": "e7c25bdd4933bee4dc2ce9684ef4e249889911e0",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "headRefOid": "0ddc9b6800b7c3b4bd97f769bf08cd04f8174f68",
+      "closedAt": "2023-12-16T13:01:57Z",
+      "mergedAt": "2023-12-16T13:01:57Z",
+      "mergedBy": "gorryfair",
+      "mergeCommit": {
+        "oid": "37e8a8ef438582bbcf79bd22b9fe8dbb04f5c6c3"
+      },
       "comments": [],
       "reviews": [
         {
@@ -2934,6 +2992,137 @@
               "body": "\"or\" the increase in packet loss?",
               "createdAt": "2023-11-22T01:15:36Z",
               "updatedAt": "2023-11-22T01:16:31Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOI7aIXc5qRmBw",
+          "commit": {
+            "abbreviatedOid": "e7c25bd"
+          },
+          "author": "huitema",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "I am not sure that we have converged yet. We kind of have an agreement to update the requirement from \"seek fairness\" to \"do not starve\". Maybe we should start with a definition of what that means. Then I think we shall simplify the requirement text and make it the same for \"same\" and \"different\" algorithms.",
+          "createdAt": "2023-12-15T01:26:31Z",
+          "updatedAt": "2023-12-15T01:41:01Z",
+          "comments": [
+            {
+              "originalPosition": 3,
+              "body": "I would change the title to:\r\n\r\n1) reflect that what we need is really \"do not starve\"\r\n\r\n2) align the \"same algorithm\" and \"different algorithm\" expectations.",
+              "createdAt": "2023-12-15T01:37:32Z",
+              "updatedAt": "2023-12-15T01:41:01Z"
+            },
+            {
+              "originalPosition": 13,
+              "body": "I am not sure that we shall mandate capacity fairness, even there. It kinds of dilute the \"harm and starve\" message.\r\n\r\nAlso, the state of the art is murky, because few deployments can actually ensure fair sharing, especially if different flows are experiencing different RTT. Today, we have:\r\n\r\n* Reno: flows get shares inversely proportional to their RTT.\r\n* Cubic: lots of efforts to ensure equal shares independently of RTT, but I have no particular experience with how good they do.\r\n* BBR: flows get share. If you wait 10 seconds, competitors will learn the actual RTT, and sharing will be a bit more fair.\r\n\r\nGetting better shares for small RTT may be unavoidable. Hosts with short RTT will track the state of the path more closely and react faster than hosts with long RTT. It may also be what the network wants: local flows get more bandwidth; their faster reaction implies a better network utilization.\r\n\r\n\r\n",
+              "createdAt": "2023-12-15T01:37:45Z",
+              "updatedAt": "2023-12-15T01:41:01Z"
+            },
+            {
+              "originalPosition": 24,
+              "body": "Again, not sure we should differentiate \"different algorithms\" and \"same algorithm\"",
+              "createdAt": "2023-12-15T01:38:41Z",
+              "updatedAt": "2023-12-15T01:41:01Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOI7aIXc5qXJCL",
+          "commit": {
+            "abbreviatedOid": "525039d"
+          },
+          "author": "gorryfair",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2023-12-15T16:06:41Z",
+          "updatedAt": "2023-12-15T16:06:41Z",
+          "comments": [
+            {
+              "originalPosition": 13,
+              "body": "I agree on the comment about lower RTTs - i.e. shorter control loop.",
+              "createdAt": "2023-12-15T16:06:41Z",
+              "updatedAt": "2023-12-15T16:06:41Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOI7aIXc5qXKUk",
+          "commit": {
+            "abbreviatedOid": "b984cef"
+          },
+          "author": "gorryfair",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2023-12-15T16:10:06Z",
+          "updatedAt": "2023-12-15T16:10:06Z",
+          "comments": [
+            {
+              "originalPosition": 13,
+              "body": "Placed this in a separate section for now, so a reader won't muddle  the two things.",
+              "createdAt": "2023-12-15T16:10:06Z",
+              "updatedAt": "2023-12-15T16:10:06Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOI7aIXc5qXUhc",
+          "commit": {
+            "abbreviatedOid": "b984cef"
+          },
+          "author": "huitema",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "The last changes by @gorryfair probably mitigate my issues. I think we will have to come back to definition of harm and to the \"self compete\" part, but this is good enough for the next iteration of the draft.",
+          "createdAt": "2023-12-15T16:36:21Z",
+          "updatedAt": "2023-12-15T16:36:21Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDOI7aIXc5qHR5A",
+          "commit": {
+            "abbreviatedOid": "b984cef"
+          },
+          "author": "martinduke",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "Modulo the comments I've already posted, LGTM",
+          "createdAt": "2023-12-13T18:56:21Z",
+          "updatedAt": "2023-12-15T17:32:45Z",
+          "comments": [
+            {
+              "originalPosition": 32,
+              "body": "```suggestion\r\nimpact on other flows when the multiple paths share a common\r\n```",
+              "createdAt": "2023-12-13T18:56:21Z",
+              "updatedAt": "2023-12-15T17:32:45Z"
+            },
+            {
+              "originalPosition": 22,
+              "body": "This section is about same-algorithm fairness. \"Mixed algorithm behavior\" is below, and perhaps this paragraph belongs there.",
+              "createdAt": "2023-12-13T18:57:39Z",
+              "updatedAt": "2023-12-15T17:32:45Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOI7aIXc5qZ6AW",
+          "commit": {
+            "abbreviatedOid": "0ddc9b6"
+          },
+          "author": "gorryfair",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2023-12-16T13:00:16Z",
+          "updatedAt": "2023-12-16T13:00:16Z",
+          "comments": [
+            {
+              "originalPosition": 22,
+              "body": "Not sure I read it this way, will merge and we can see how the whole document flows.",
+              "createdAt": "2023-12-16T13:00:16Z",
+              "updatedAt": "2023-12-16T13:00:17Z"
             }
           ]
         }
@@ -2972,24 +3161,26 @@
       "id": "PR_kwDOI7aIXc5h7Y0T",
       "title": "Revert \"Define congestion collapse in terms of excess overhead.\"",
       "url": "https://github.com/ietf-wg-ccwg/rfc5033bis/pull/53",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "martinduke",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "Reverts ietf-wg-ccwg/rfc5033bis#46.\r\n\r\nThis was accidentally submitted without review. The conclusion of the editors is that this is out of scope for the document.",
       "createdAt": "2023-12-13T18:52:21Z",
-      "updatedAt": "2023-12-13T18:52:34Z",
+      "updatedAt": "2023-12-15T17:33:14Z",
       "baseRepository": "ietf-wg-ccwg/rfc5033bis",
       "baseRefName": "main",
       "baseRefOid": "41f9ffa543f484223d1912050c9ec461d8deebae",
       "headRepository": "ietf-wg-ccwg/rfc5033bis",
       "headRefName": "revert-46-mm01-a",
       "headRefOid": "db6fdfa2dd0c96bdb41ac638d2d54e9a2c1fb518",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "closedAt": "2023-12-15T17:33:14Z",
+      "mergedAt": "2023-12-15T17:33:14Z",
+      "mergedBy": "martinduke",
+      "mergeCommit": {
+        "oid": "17a88f6ad3e4aad884a445c6fa1e3615da57b6c2"
+      },
       "comments": [],
       "reviews": []
     },
@@ -2998,78 +3189,267 @@
       "id": "PR_kwDOI7aIXc5h7lXn",
       "title": "Add ref to RFC7141",
       "url": "https://github.com/ietf-wg-ccwg/rfc5033bis/pull/54",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "martinduke",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "Fixes #3 ",
       "createdAt": "2023-12-13T19:35:15Z",
-      "updatedAt": "2023-12-13T20:16:30Z",
+      "updatedAt": "2023-12-15T16:30:52Z",
       "baseRepository": "ietf-wg-ccwg/rfc5033bis",
       "baseRefName": "main",
       "baseRefOid": "f6681a300e72c44d502cf8a5980c9877e8a57027",
       "headRepository": "martinduke/rfc5033bis",
       "headRefName": "rfc7141",
       "headRefOid": "c12ed36987d6c1d8022117f0ebb45ccbea41c76f",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "closedAt": "2023-12-15T16:30:52Z",
+      "mergedAt": "2023-12-15T16:30:52Z",
+      "mergedBy": "gorryfair",
+      "mergeCommit": {
+        "oid": "5ad03819d69a4cc3192175f63dddf1c87d2a83a1"
+      },
       "comments": [],
-      "reviews": []
+      "reviews": [
+        {
+          "id": "PRR_kwDOI7aIXc5qXSTW",
+          "commit": {
+            "abbreviatedOid": "c12ed36"
+          },
+          "author": "gorryfair",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2023-12-15T16:30:42Z",
+          "updatedAt": "2023-12-15T16:30:42Z",
+          "comments": []
+        }
+      ]
     },
     {
       "number": 55,
       "id": "PR_kwDOI7aIXc5h79qG",
       "title": "Added AQM text",
       "url": "https://github.com/ietf-wg-ccwg/rfc5033bis/pull/55",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "martinduke",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "Fixes #7",
       "createdAt": "2023-12-13T20:56:57Z",
-      "updatedAt": "2023-12-13T20:57:08Z",
+      "updatedAt": "2023-12-14T17:30:22Z",
       "baseRepository": "ietf-wg-ccwg/rfc5033bis",
       "baseRefName": "main",
       "baseRefOid": "f6681a300e72c44d502cf8a5980c9877e8a57027",
       "headRepository": "martinduke/rfc5033bis",
       "headRefName": "aqm",
-      "headRefOid": "f58006646069b30aa6aff1a9df72a08661dea7a7",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
-      "comments": [],
-      "reviews": []
+      "headRefOid": "c7283f577a6b19db5c76616ad621580ce66c67e4",
+      "closedAt": "2023-12-14T17:25:56Z",
+      "mergedAt": "2023-12-14T17:25:56Z",
+      "mergedBy": "martinduke",
+      "mergeCommit": {
+        "oid": "7099a1b64728713ab434f9c2e6234cde4769756c"
+      },
+      "comments": [
+        {
+          "author": "gorryfair",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Created a separate issue to discuss ECN.",
+          "createdAt": "2023-12-14T08:18:59Z",
+          "updatedAt": "2023-12-14T08:18:59Z"
+        }
+      ],
+      "reviews": [
+        {
+          "id": "PRR_kwDOI7aIXc5qI_Oy",
+          "commit": {
+            "abbreviatedOid": "c7283f5"
+          },
+          "author": "huitema",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "I fixed a typo, but otherwise this looks good.",
+          "createdAt": "2023-12-14T01:02:43Z",
+          "updatedAt": "2023-12-14T01:02:43Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDOI7aIXc5qLAMQ",
+          "commit": {
+            "abbreviatedOid": "c7283f5"
+          },
+          "author": "gorryfair",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2023-12-14T08:18:16Z",
+          "updatedAt": "2023-12-14T08:18:16Z",
+          "comments": []
+        }
+      ]
     },
     {
       "number": 56,
       "id": "PR_kwDOI7aIXc5h8CfN",
       "title": "short flows",
       "url": "https://github.com/ietf-wg-ccwg/rfc5033bis/pull/56",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "martinduke",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "Fixes #10",
       "createdAt": "2023-12-13T21:15:24Z",
-      "updatedAt": "2023-12-13T21:15:24Z",
+      "updatedAt": "2023-12-16T12:55:51Z",
       "baseRepository": "ietf-wg-ccwg/rfc5033bis",
       "baseRefName": "main",
-      "baseRefOid": "f6681a300e72c44d502cf8a5980c9877e8a57027",
+      "baseRefOid": "17a88f6ad3e4aad884a445c6fa1e3615da57b6c2",
       "headRepository": "martinduke/rfc5033bis",
       "headRefName": "short-flows",
-      "headRefOid": "f0ac31421b40698d268f3934be9b13f795737114",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
-      "comments": [],
-      "reviews": []
+      "headRefOid": "12e965b48279ee5a1a0e4226b1fc7992e94051f0",
+      "closedAt": "2023-12-16T12:55:51Z",
+      "mergedAt": "2023-12-16T12:55:51Z",
+      "mergedBy": "gorryfair",
+      "mergeCommit": {
+        "oid": "62c66f162c8d17b2a0040db34e52118a44291014"
+      },
+      "comments": [
+        {
+          "author": "martinduke",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Editors: just focus on what needs to be evaluated (the last sentence) and toss the rest. We are not going to satisfy anyone with a discussion of the bigger picture.",
+          "createdAt": "2023-12-15T16:36:48Z",
+          "updatedAt": "2023-12-15T16:36:48Z"
+        }
+      ],
+      "reviews": [
+        {
+          "id": "PRR_kwDOI7aIXc5qJAlm",
+          "commit": {
+            "abbreviatedOid": "f0ac314"
+          },
+          "author": "huitema",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "I think we need to discuss a bit what we want to write. \"Think about it\" is a bit of a cope-out. It might be good to describe the problem in more detail, with the two extremes of \"abuse\" and \"too-slow-start\".",
+          "createdAt": "2023-12-14T01:10:37Z",
+          "updatedAt": "2023-12-14T01:38:24Z",
+          "comments": [
+            {
+              "originalPosition": 14,
+              "body": "That's one way to describe Hystart. That's not necessarily what I would have written.\r\n\r\nFundamentally, Hystart is about trying to detect the bottleneck CWIN without incurring packet losses, by stopping exponential growth when a delay increase is detected. This is a great idea, but it turns out that it can \"stop too soon\" if delay increases happen that are not due to congestion. Hystart++ tries to mitigate that by not going immediately into \"congestion avoidance\" after the first delay increase, but instead going to a \"more cautious exponential growth\" . So Hystart++ is actually a bit more aggressive than the original Hystart...\r\n\r\nNot that I have a better way to say that...",
+              "createdAt": "2023-12-14T01:10:37Z",
+              "updatedAt": "2023-12-14T01:38:24Z"
+            },
+            {
+              "originalPosition": 17,
+              "body": "There are two separate issues:\r\n\r\n1) Lots of short flows can be more aggressive than running many transactions on a longer duration connection. For example, you *could* do DNS over TCP by opening a separate TCP connection for each DNS transaction. That would be bad, because each transaction remains under IW10, and thus the multiple TCP connections are never regulated by congestion control.\r\n\r\n2) In contrast, many short flows never send enough data to saturate the bottleneck, and thus always send at a rate lower than the path capacity. They are not aggressive enough.\r\n\r\nThe solution to the second issue is either to convince developers to move to a model a single connection, or to be much better at quickly ramping up single flow connections. Something like the \"careful resume\" work. ",
+              "createdAt": "2023-12-14T01:34:39Z",
+              "updatedAt": "2023-12-14T01:38:24Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOI7aIXc5qPAvo",
+          "commit": {
+            "abbreviatedOid": "f0ac314"
+          },
+          "author": "martinduke",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2023-12-14T17:26:49Z",
+          "updatedAt": "2023-12-14T17:26:50Z",
+          "comments": [
+            {
+              "originalPosition": 14,
+              "body": "There's no Hystart RFC, so I thought it would be easier to skip over all that history and just say \"here is something a bit different from slow start, for once\"",
+              "createdAt": "2023-12-14T17:26:49Z",
+              "updatedAt": "2023-12-14T17:26:50Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOI7aIXc5qRsyK",
+          "commit": {
+            "abbreviatedOid": "f0ac314"
+          },
+          "author": "huitema",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2023-12-15T02:10:25Z",
+          "updatedAt": "2023-12-15T02:10:25Z",
+          "comments": [
+            {
+              "originalPosition": 14,
+              "body": "Yes, but then BBR also has a different slow start test. It measures the bottleneck bandwidth during slow start, and stop increasing the pacing rate if the measured throughput did not increase significantly during the last 4 RTT. That, too, has the goal of \"stopping exponential growth \". So maybe mention both...",
+              "createdAt": "2023-12-15T02:10:25Z",
+              "updatedAt": "2023-12-15T02:10:25Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOI7aIXc5qXPPl",
+          "commit": {
+            "abbreviatedOid": "f0ac314"
+          },
+          "author": "gorryfair",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2023-12-15T16:22:55Z",
+          "updatedAt": "2023-12-15T16:22:55Z",
+          "comments": [
+            {
+              "originalPosition": 14,
+              "body": "This might not be the correct vector for this section. SHORT flows m- by which I mean ones with little data, do not need Hystart, Careful Resume, etc. They are short, they start, they send, they end. The next piece is where I think this ought to lead...",
+              "createdAt": "2023-12-15T16:22:55Z",
+              "updatedAt": "2023-12-15T16:22:55Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOI7aIXc5qYmA6",
+          "commit": {
+            "abbreviatedOid": "12e965b"
+          },
+          "author": "huitema",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "Looks OK",
+          "createdAt": "2023-12-15T19:47:31Z",
+          "updatedAt": "2023-12-15T19:47:31Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDOI7aIXc5qZ5m2",
+          "commit": {
+            "abbreviatedOid": "12e965b"
+          },
+          "author": "gorryfair",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "Good.",
+          "createdAt": "2023-12-16T12:43:22Z",
+          "updatedAt": "2023-12-16T12:43:22Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDOI7aIXc5qZ55j",
+          "commit": {
+            "abbreviatedOid": "12e965b"
+          },
+          "author": "gorryfair",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "Thanks for updating this.",
+          "createdAt": "2023-12-16T12:55:34Z",
+          "updatedAt": "2023-12-16T12:55:34Z",
+          "comments": []
+        }
+      ]
     },
     {
       "number": 57,
@@ -3079,17 +3459,19 @@
       "state": "OPEN",
       "author": "martinduke",
       "authorAssociation": "COLLABORATOR",
-      "assignees": [],
+      "assignees": [
+        "martinduke"
+      ],
       "labels": [],
       "body": "Fix #25 and #32.",
       "createdAt": "2023-12-13T21:40:58Z",
-      "updatedAt": "2023-12-13T21:54:32Z",
+      "updatedAt": "2023-12-16T12:54:42Z",
       "baseRepository": "ietf-wg-ccwg/rfc5033bis",
       "baseRefName": "main",
-      "baseRefOid": "f6681a300e72c44d502cf8a5980c9877e8a57027",
+      "baseRefOid": "17a88f6ad3e4aad884a445c6fa1e3615da57b6c2",
       "headRepository": "martinduke/rfc5033bis",
       "headRefName": "realtime",
-      "headRefOid": "81142e8ce79b9afbde00774a602f8175c9202c8c",
+      "headRefOid": "6f5e74d56d2558f6051fa293d5ab97feed46ef85",
       "closedAt": null,
       "mergedAt": null,
       "mergedBy": null,
@@ -3103,53 +3485,392 @@
           "updatedAt": "2023-12-13T21:42:28Z"
         }
       ],
-      "reviews": []
+      "reviews": [
+        {
+          "id": "PRR_kwDOI7aIXc5qJNeW",
+          "commit": {
+            "abbreviatedOid": "81142e8"
+          },
+          "author": "huitema",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "Looks good enough.",
+          "createdAt": "2023-12-14T01:48:56Z",
+          "updatedAt": "2023-12-14T01:48:56Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDOI7aIXc5qK1iD",
+          "commit": {
+            "abbreviatedOid": "81142e8"
+          },
+          "author": "gorryfair",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "Some thoughts...",
+          "createdAt": "2023-12-14T07:49:24Z",
+          "updatedAt": "2023-12-14T07:52:08Z",
+          "comments": [
+            {
+              "originalPosition": 26,
+              "body": "Interplay between algorithms - or interplay with other traffic : I'd have thought the latter?",
+              "createdAt": "2023-12-14T07:49:25Z",
+              "updatedAt": "2023-12-14T07:52:09Z"
+            },
+            {
+              "originalPosition": 8,
+              "body": "These protocols are often not capacity seeking, and hence methods such as CWV might apply [RFC7661]?",
+              "createdAt": "2023-12-14T07:51:02Z",
+              "updatedAt": "2023-12-14T07:52:09Z"
+            },
+            {
+              "originalPosition": 16,
+              "body": "Why not with widely-deploted transports in general here? Why only specific to real-time protocols?",
+              "createdAt": "2023-12-14T07:51:51Z",
+              "updatedAt": "2023-12-14T08:02:11Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOI7aIXc5qPV25",
+          "commit": {
+            "abbreviatedOid": "81142e8"
+          },
+          "author": "martinduke",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2023-12-14T18:04:06Z",
+          "updatedAt": "2023-12-14T18:04:07Z",
+          "comments": [
+            {
+              "originalPosition": 16,
+              "body": "well, the section is about real-time transports. General purpose protocols are in the section above.",
+              "createdAt": "2023-12-14T18:04:06Z",
+              "updatedAt": "2023-12-14T18:04:07Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOI7aIXc5qPWZX",
+          "commit": {
+            "abbreviatedOid": "81142e8"
+          },
+          "author": "martinduke",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2023-12-14T18:05:29Z",
+          "updatedAt": "2023-12-14T18:05:30Z",
+          "comments": [
+            {
+              "originalPosition": 8,
+              "body": "\"finite throughput requirements\" was my way of saying \"non capacity seeking\".  I don't think it's necessarily the role of this document to identify examples of specific congestion control proposals.",
+              "createdAt": "2023-12-14T18:05:30Z",
+              "updatedAt": "2023-12-14T18:05:30Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOI7aIXc5qPXiF",
+          "commit": {
+            "abbreviatedOid": "81142e8"
+          },
+          "author": "gorryfair",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2023-12-14T18:08:40Z",
+          "updatedAt": "2023-12-14T18:08:40Z",
+          "comments": [
+            {
+              "originalPosition": 8,
+              "body": "Sure, we ought not to advocate methods... but I think  we could day \"(i.e. does not seek to utilise all allowed capacity)\" or something to indicate what we mean",
+              "createdAt": "2023-12-14T18:08:40Z",
+              "updatedAt": "2023-12-14T18:08:40Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOI7aIXc5qXLf4",
+          "commit": {
+            "abbreviatedOid": "81142e8"
+          },
+          "author": "gorryfair",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2023-12-15T16:13:11Z",
+          "updatedAt": "2023-12-15T16:13:11Z",
+          "comments": [
+            {
+              "originalPosition": 16,
+              "body": "Sorry - not my point. I meant: Why not \"New real-time congestion control proposals SHOULD consider coexistence with widely deployed real-time and non-real-time congestion controls.\"",
+              "createdAt": "2023-12-15T16:13:11Z",
+              "updatedAt": "2023-12-15T16:13:11Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOI7aIXc5qXRW6",
+          "commit": {
+            "abbreviatedOid": "c3786f0"
+          },
+          "author": "gorryfair",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2023-12-15T16:28:18Z",
+          "updatedAt": "2023-12-15T16:28:19Z",
+          "comments": [
+            {
+              "originalPosition": 15,
+              "body": "Feedback for congestin control  for real-time flows can be diifferent and less frequent than the acknowledgements provided by reliable transports, RFC 9392 provides some guidance on how to design and evaluate appropriate feedback.",
+              "createdAt": "2023-12-15T16:28:18Z",
+              "updatedAt": "2023-12-15T16:28:19Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOI7aIXc5qXW5B",
+          "commit": {
+            "abbreviatedOid": "81142e8"
+          },
+          "author": "martinduke",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2023-12-15T16:42:40Z",
+          "updatedAt": "2023-12-15T16:42:41Z",
+          "comments": [
+            {
+              "originalPosition": 16,
+              "body": "Editors meeting: this doc is saying all algs (of any type) must be tested against cubic, etc AND real-time protocols. There are not different standards for different types of proposal.",
+              "createdAt": "2023-12-15T16:42:41Z",
+              "updatedAt": "2023-12-15T16:42:41Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOI7aIXc5qZ54P",
+          "commit": {
+            "abbreviatedOid": "6f5e74d"
+          },
+          "author": "gorryfair",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "Thanks for the changes.",
+          "createdAt": "2023-12-16T12:54:42Z",
+          "updatedAt": "2023-12-16T12:54:42Z",
+          "comments": []
+        }
+      ]
     },
     {
       "number": 58,
       "id": "PR_kwDOI7aIXc5h8NF1",
       "title": "IoT text",
       "url": "https://github.com/ietf-wg-ccwg/rfc5033bis/pull/58",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "martinduke",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "I am not an IoT guy but I took a stab at it.\r\n\r\nFixes #47",
       "createdAt": "2023-12-13T21:54:09Z",
-      "updatedAt": "2023-12-13T21:54:16Z",
+      "updatedAt": "2023-12-15T16:51:42Z",
       "baseRepository": "ietf-wg-ccwg/rfc5033bis",
       "baseRefName": "main",
-      "baseRefOid": "f6681a300e72c44d502cf8a5980c9877e8a57027",
+      "baseRefOid": "7099a1b64728713ab434f9c2e6234cde4769756c",
       "headRepository": "martinduke/rfc5033bis",
       "headRefName": "iot",
-      "headRefOid": "0e91fff598c5b1bacefe7db425d00483b4c5b0de",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
-      "comments": [],
-      "reviews": []
+      "headRefOid": "f618f4ed9e266b9939107c6fc2358755e77184d9",
+      "closedAt": "2023-12-15T16:51:41Z",
+      "mergedAt": "2023-12-15T16:51:41Z",
+      "mergedBy": "martinduke",
+      "mergeCommit": {
+        "oid": "120a11ebfbf5dd5e91c82fca5b0d51372d60b10e"
+      },
+      "comments": [
+        {
+          "author": "martinduke",
+          "authorAssociation": "COLLABORATOR",
+          "body": "@huitema \r\n\r\ndo you have suggested text, or should I submit this is as a start and you can open a new issue?",
+          "createdAt": "2023-12-14T18:22:44Z",
+          "updatedAt": "2023-12-14T18:23:01Z"
+        }
+      ],
+      "reviews": [
+        {
+          "id": "PRR_kwDOI7aIXc5qJM0O",
+          "commit": {
+            "abbreviatedOid": "0e91fff"
+          },
+          "author": "huitema",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "OK, that's a start. But there are two possible angles: could resource constrained devices use this spec? And, how would this spec coexist with IoT specific transports, such as \"single buffer\" implementations?",
+          "createdAt": "2023-12-14T01:47:30Z",
+          "updatedAt": "2023-12-14T01:47:30Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDOI7aIXc5qKz_8",
+          "commit": {
+            "abbreviatedOid": "b66bf1e"
+          },
+          "author": "gorryfair",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "Looks like a start (I fixed a typo). We don't speak about scale ... in that although the sending rate is often low (or short flows), the number of endpoints can be high.",
+          "createdAt": "2023-12-14T07:44:39Z",
+          "updatedAt": "2023-12-14T08:04:56Z",
+          "comments": []
+        }
+      ]
     },
     {
       "number": 59,
       "id": "PR_kwDOI7aIXc5h8Pkc",
       "title": "Don't panic text",
       "url": "https://github.com/ietf-wg-ccwg/rfc5033bis/pull/59",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "martinduke",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "Fixes #41 ",
       "createdAt": "2023-12-13T22:04:12Z",
-      "updatedAt": "2023-12-13T22:04:20Z",
+      "updatedAt": "2023-12-15T16:48:05Z",
       "baseRepository": "ietf-wg-ccwg/rfc5033bis",
       "baseRefName": "main",
-      "baseRefOid": "f6681a300e72c44d502cf8a5980c9877e8a57027",
+      "baseRefOid": "7099a1b64728713ab434f9c2e6234cde4769756c",
       "headRepository": "martinduke/rfc5033bis",
       "headRefName": "dont-panic",
-      "headRefOid": "7ad20e18c13e776e8ab53e1c66c1a8f532bd72ae",
+      "headRefOid": "03b0b8f6b8cc2abd0d14d25ff04892d01fd33e90",
+      "closedAt": "2023-12-15T16:48:05Z",
+      "mergedAt": "2023-12-15T16:48:05Z",
+      "mergedBy": "gorryfair",
+      "mergeCommit": {
+        "oid": "c6fbf7e7315801e272baa963a411d59dc7629bfa"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOI7aIXc5qJOOP",
+          "commit": {
+            "abbreviatedOid": "7ad20e1"
+          },
+          "author": "huitema",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "We need to be nice, but not too nice. This phrase is targeting folks like researchers or PhD candidates. They should be aware that this topic is not going to be a walk in the park. But showing why the problem is hard could also be an encouragement -- you don't get a PhD for solving again a problem that 100s have already solved...",
+          "createdAt": "2023-12-14T01:50:33Z",
+          "updatedAt": "2023-12-14T01:56:00Z",
+          "comments": [
+            {
+              "originalPosition": 7,
+              "body": "Weird use of tenses. Might be simpler to just say, \"Instead, proponents\r\nare encouraged to think about most of these issues beforehand\"",
+              "createdAt": "2023-12-14T01:50:33Z",
+              "updatedAt": "2023-12-14T01:56:00Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOI7aIXc5qK4dl",
+          "commit": {
+            "abbreviatedOid": "7ad20e1"
+          },
+          "author": "gorryfair",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2023-12-14T07:57:42Z",
+          "updatedAt": "2023-12-14T07:57:42Z",
+          "comments": [
+            {
+              "originalPosition": 9,
+              "body": "The work below, seems to me to suggest the next section, which isn't quite what I had hoped. Perhaps we need a different word?",
+              "createdAt": "2023-12-14T07:57:42Z",
+              "updatedAt": "2023-12-14T07:57:42Z"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 61,
+      "id": "PR_kwDOI7aIXc5iICPj",
+      "title": "Update Sudden changes in path",
+      "url": "https://github.com/ietf-wg-ccwg/rfc5033bis/pull/61",
+      "state": "MERGED",
+      "author": "gorryfair",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [
+        "gorryfair"
+      ],
+      "labels": [],
+      "body": "Minor update to polish this section to nearly finished.",
+      "createdAt": "2023-12-15T16:19:24Z",
+      "updatedAt": "2023-12-16T13:02:30Z",
+      "baseRepository": "ietf-wg-ccwg/rfc5033bis",
+      "baseRefName": "main",
+      "baseRefOid": "7099a1b64728713ab434f9c2e6234cde4769756c",
+      "headRepository": "ietf-wg-ccwg/rfc5033bis",
+      "headRefName": "gorryfair-patch-6",
+      "headRefOid": "3b2e14369330c3758292fc02f84752d9156bbb15",
+      "closedAt": "2023-12-16T13:02:30Z",
+      "mergedAt": "2023-12-16T13:02:30Z",
+      "mergedBy": "gorryfair",
+      "mergeCommit": {
+        "oid": "0a5e72be11f782a90ca9e347c9a5a5565d2c77f5"
+      },
+      "comments": [
+        {
+          "author": "martinduke",
+          "authorAssociation": "COLLABORATOR",
+          "body": "I believe this fixes #28 ",
+          "createdAt": "2023-12-15T18:04:55Z",
+          "updatedAt": "2023-12-15T18:04:55Z"
+        }
+      ],
+      "reviews": [
+        {
+          "id": "PRR_kwDOI7aIXc5qYBMf",
+          "commit": {
+            "abbreviatedOid": "3b2e143"
+          },
+          "author": "martinduke",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2023-12-15T18:04:05Z",
+          "updatedAt": "2023-12-15T18:04:05Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 62,
+      "id": "PR_kwDOI7aIXc5iKzmh",
+      "title": "Add ECN test to AQM",
+      "url": "https://github.com/ietf-wg-ccwg/rfc5033bis/pull/62",
+      "state": "OPEN",
+      "author": "gorryfair",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [
+        "gorryfair"
+      ],
+      "labels": [],
+      "body": "",
+      "createdAt": "2023-12-16T15:49:10Z",
+      "updatedAt": "2023-12-16T15:50:43Z",
+      "baseRepository": "ietf-wg-ccwg/rfc5033bis",
+      "baseRefName": "main",
+      "baseRefOid": "0a5e72be11f782a90ca9e347c9a5a5565d2c77f5",
+      "headRepository": "ietf-wg-ccwg/rfc5033bis",
+      "headRefName": "gorryfair-add-ECN",
+      "headRefOid": "de1e47eb981b8574690b97de3427fede8e50bfd4",
       "closedAt": null,
       "mergedAt": null,
       "mergedBy": null,
