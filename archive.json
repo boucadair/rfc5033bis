@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2023-12-17T00:40:46.974710+00:00",
+  "timestamp": "2023-12-19T00:37:42.037907+00:00",
   "repo": "ietf-wg-ccwg/rfc5033bis",
   "labels": [
     {
@@ -3864,7 +3864,7 @@
       "labels": [],
       "body": "",
       "createdAt": "2023-12-16T15:49:10Z",
-      "updatedAt": "2023-12-16T15:50:43Z",
+      "updatedAt": "2023-12-17T15:57:31Z",
       "baseRepository": "ietf-wg-ccwg/rfc5033bis",
       "baseRefName": "main",
       "baseRefOid": "0a5e72be11f782a90ca9e347c9a5a5565d2c77f5",
@@ -3876,7 +3876,28 @@
       "mergedBy": null,
       "mergeCommit": null,
       "comments": [],
-      "reviews": []
+      "reviews": [
+        {
+          "id": "PRR_kwDOI7aIXc5qbA3T",
+          "commit": {
+            "abbreviatedOid": "de1e47e"
+          },
+          "author": "nealcardwell",
+          "authorAssociation": "NONE",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2023-12-17T15:56:57Z",
+          "updatedAt": "2023-12-17T15:57:31Z",
+          "comments": [
+            {
+              "originalPosition": 6,
+              "body": "typo: \"Congestion Experienced (CE)\" (was missing a \"d\")\r\n",
+              "createdAt": "2023-12-17T15:56:58Z",
+              "updatedAt": "2023-12-17T15:57:31Z"
+            }
+          ]
+        }
+      ]
     }
   ]
 }
