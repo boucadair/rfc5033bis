@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2023-12-19T00:37:42.037907+00:00",
+  "timestamp": "2023-12-21T00:37:02.696028+00:00",
   "repo": "ietf-wg-ccwg/rfc5033bis",
   "labels": [
     {
@@ -735,7 +735,7 @@
       "id": "I_kwDOI7aIXc5v1pN8",
       "title": "real-time congestion controls",
       "url": "https://github.com/ietf-wg-ccwg/rfc5033bis/issues/25",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "martinduke",
       "authorAssociation": "COLLABORATOR",
       "assignees": [
@@ -744,8 +744,8 @@
       "labels": [],
       "body": "Condition (1) is concerned with the behavior with respect to Reno and, thanks to our edits, Cubic. But there are of course other congestion controls out there, both standard and non-standard, in support of real-time and other non-greedy applications. Should we mention those as a class? Namecheck some examples?",
       "createdAt": "2023-08-31T21:20:52Z",
-      "updatedAt": "2023-10-16T15:27:00Z",
-      "closedAt": null,
+      "updatedAt": "2023-12-20T01:25:42Z",
+      "closedAt": "2023-12-20T01:25:42Z",
       "comments": [
         {
           "author": "martinduke",
@@ -876,7 +876,7 @@
       "id": "I_kwDOI7aIXc5zuvye",
       "title": "Add reference to: RFC9392?",
       "url": "https://github.com/ietf-wg-ccwg/rfc5033bis/issues/32",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "gorryfair",
       "authorAssociation": "COLLABORATOR",
       "assignees": [
@@ -885,8 +885,8 @@
       "labels": [],
       "body": "This info RFC has some sensible guidelines on RTP feedback frequency, if we need this: \"Sending RTP Control Protocol (RTCP) Feedback for Congestion Control in Interactive Multimedia Conferences\". ",
       "createdAt": "2023-10-13T09:55:51Z",
-      "updatedAt": "2023-10-16T15:28:05Z",
-      "closedAt": null,
+      "updatedAt": "2023-12-20T01:25:42Z",
+      "closedAt": "2023-12-20T01:25:42Z",
       "comments": [
         {
           "author": "martinduke",
@@ -918,7 +918,7 @@
       "id": "I_kwDOI7aIXc5zyjOI",
       "title": "Non-standard algorithms",
       "url": "https://github.com/ietf-wg-ccwg/rfc5033bis/issues/35",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "martinduke",
       "authorAssociation": "COLLABORATOR",
       "assignees": [
@@ -927,8 +927,8 @@
       "labels": [],
       "body": "The text currently reads:\r\n\r\n\"The community should also consider other non-standard congestion controls known to be widely deployed,\"\r\n\r\nThis is a compromise to land a mostly unrelated PR.\r\n\r\n@gorryfair doesn't think it's fair to expect participants to test algorithms that aren't fully specified.\r\n\r\nI would argue that if such specifications exist and the algorithm is systemically important, it absolutely should be modeled. Moreover, if the algorithm is rather loosely described, in many cases there is open source code (often in a Linux fork!) that can be tested on a host, or in simulation frameworks like ns3.\r\n\r\nIf an algorithm is a true black box, with no description besides marketing material, and no open-source code, I agree there is not much to be done. I also believe that while algorithms like this exist, they are not systemically important to the internet.",
       "createdAt": "2023-10-13T20:54:16Z",
-      "updatedAt": "2023-11-20T16:10:50Z",
-      "closedAt": null,
+      "updatedAt": "2023-12-20T01:25:42Z",
+      "closedAt": "2023-12-20T01:25:42Z",
       "comments": [
         {
           "author": "martinduke",
@@ -1168,7 +1168,7 @@
       "id": "I_kwDOI7aIXc55qd-5",
       "title": "Ought we to mention ECN?",
       "url": "https://github.com/ietf-wg-ccwg/rfc5033bis/issues/60",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "gorryfair",
       "authorAssociation": "COLLABORATOR",
       "assignees": [
@@ -1177,8 +1177,8 @@
       "labels": [],
       "body": "I'm separating AQM from ECN, although ECN relies on AQM design and deployment - ECN can be a force for good when detecting bottlenecks and latency - aka RFC 8087.",
       "createdAt": "2023-12-14T08:16:26Z",
-      "updatedAt": "2023-12-15T17:10:54Z",
-      "closedAt": null,
+      "updatedAt": "2023-12-20T08:29:04Z",
+      "closedAt": "2023-12-20T08:29:04Z",
       "comments": [
         {
           "author": "huitema",
@@ -3456,7 +3456,7 @@
       "id": "PR_kwDOI7aIXc5h8JQW",
       "title": "Realtime",
       "url": "https://github.com/ietf-wg-ccwg/rfc5033bis/pull/57",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "martinduke",
       "authorAssociation": "COLLABORATOR",
       "assignees": [
@@ -3465,17 +3465,19 @@
       "labels": [],
       "body": "Fix #25 and #32.",
       "createdAt": "2023-12-13T21:40:58Z",
-      "updatedAt": "2023-12-16T12:54:42Z",
+      "updatedAt": "2023-12-20T01:25:53Z",
       "baseRepository": "ietf-wg-ccwg/rfc5033bis",
       "baseRefName": "main",
-      "baseRefOid": "17a88f6ad3e4aad884a445c6fa1e3615da57b6c2",
+      "baseRefOid": "0a5e72be11f782a90ca9e347c9a5a5565d2c77f5",
       "headRepository": "martinduke/rfc5033bis",
       "headRefName": "realtime",
-      "headRefOid": "6f5e74d56d2558f6051fa293d5ab97feed46ef85",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "headRefOid": "1fa80f64d1dac664b80d2c57432540c67e70f916",
+      "closedAt": "2023-12-20T01:25:41Z",
+      "mergedAt": "2023-12-20T01:25:41Z",
+      "mergedBy": "martinduke",
+      "mergeCommit": {
+        "oid": "0a7288168ca9543097778b8b1337752992a46489"
+      },
       "comments": [
         {
           "author": "martinduke",
@@ -3855,7 +3857,7 @@
       "id": "PR_kwDOI7aIXc5iKzmh",
       "title": "Add ECN test to AQM",
       "url": "https://github.com/ietf-wg-ccwg/rfc5033bis/pull/62",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "gorryfair",
       "authorAssociation": "COLLABORATOR",
       "assignees": [
@@ -3864,18 +3866,28 @@
       "labels": [],
       "body": "",
       "createdAt": "2023-12-16T15:49:10Z",
-      "updatedAt": "2023-12-17T15:57:31Z",
+      "updatedAt": "2023-12-20T08:29:12Z",
       "baseRepository": "ietf-wg-ccwg/rfc5033bis",
       "baseRefName": "main",
       "baseRefOid": "0a5e72be11f782a90ca9e347c9a5a5565d2c77f5",
       "headRepository": "ietf-wg-ccwg/rfc5033bis",
       "headRefName": "gorryfair-add-ECN",
-      "headRefOid": "de1e47eb981b8574690b97de3427fede8e50bfd4",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
-      "comments": [],
+      "headRefOid": "7ff7a96913206023d5e1f3b7db4e3f1eca9c33df",
+      "closedAt": "2023-12-20T08:29:03Z",
+      "mergedAt": "2023-12-20T08:29:03Z",
+      "mergedBy": "gorryfair",
+      "mergeCommit": {
+        "oid": "17a4121e2ca7568c0dc7abbc055e48691f545968"
+      },
+      "comments": [
+        {
+          "author": "gorryfair",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Added the missing 'd' - thanks Neal.",
+          "createdAt": "2023-12-20T08:29:11Z",
+          "updatedAt": "2023-12-20T08:29:11Z"
+        }
+      ],
       "reviews": [
         {
           "id": "PRR_kwDOI7aIXc5qbA3T",
@@ -3896,6 +3908,19 @@
               "updatedAt": "2023-12-17T15:57:31Z"
             }
           ]
+        },
+        {
+          "id": "PRR_kwDOI7aIXc5qsDYh",
+          "commit": {
+            "abbreviatedOid": "de1e47e"
+          },
+          "author": "martinduke",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "see Neal's comment",
+          "createdAt": "2023-12-20T01:24:12Z",
+          "updatedAt": "2023-12-20T01:24:12Z",
+          "comments": []
         }
       ]
     }
