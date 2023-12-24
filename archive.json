@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2023-12-21T00:37:02.696028+00:00",
+  "timestamp": "2023-12-24T00:39:51.701921+00:00",
   "repo": "ietf-wg-ccwg/rfc5033bis",
   "labels": [
     {
@@ -951,7 +951,7 @@
       "id": "I_kwDOI7aIXc52Emk3",
       "title": "Is Multicast in scope?",
       "url": "https://github.com/ietf-wg-ccwg/rfc5033bis/issues/40",
-      "state": "CLOSED",
+      "state": "OPEN",
       "author": "gorryfair",
       "authorAssociation": "COLLABORATOR",
       "assignees": [
@@ -960,8 +960,8 @@
       "labels": [],
       "body": "Discussed at IETF-118. \r\n\r\nAt least we can mention Sect 4 of Multicast UDP Usage Guidelines in RFC8085.",
       "createdAt": "2023-11-07T09:31:18Z",
-      "updatedAt": "2023-12-13T18:55:09Z",
-      "closedAt": "2023-12-13T18:55:09Z",
+      "updatedAt": "2023-12-21T15:46:23Z",
+      "closedAt": null,
       "comments": [
         {
           "author": "ekinnear",
@@ -990,6 +990,20 @@
           "body": "Closed by #49",
           "createdAt": "2023-12-13T18:55:09Z",
           "updatedAt": "2023-12-13T18:55:09Z"
+        },
+        {
+          "author": "theri",
+          "authorAssociation": "NONE",
+          "body": "Sorry, just reading through these changes now --\u202fWhy does a PR on multi**path** close an issue on multi**cast**? Am I missing something here?",
+          "createdAt": "2023-12-21T15:31:42Z",
+          "updatedAt": "2023-12-21T15:31:42Z"
+        },
+        {
+          "author": "gorryfair",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Whoops, that does not seem correct, re-opened this issue.",
+          "createdAt": "2023-12-21T15:46:22Z",
+          "updatedAt": "2023-12-21T15:46:22Z"
         }
       ]
     },
