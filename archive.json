@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2023-12-26T00:36:10.492756+00:00",
+  "timestamp": "2023-12-28T00:35:45.631896+00:00",
   "repo": "ietf-wg-ccwg/rfc5033bis",
   "labels": [
     {
@@ -960,7 +960,7 @@
       "labels": [],
       "body": "Discussed at IETF-118. \r\n\r\nAt least we can mention Sect 4 of Multicast UDP Usage Guidelines in RFC8085.",
       "createdAt": "2023-11-07T09:31:18Z",
-      "updatedAt": "2023-12-21T15:46:23Z",
+      "updatedAt": "2023-12-27T19:27:53Z",
       "closedAt": null,
       "comments": [
         {
@@ -1004,6 +1004,13 @@
           "body": "Whoops, that does not seem correct, re-opened this issue.",
           "createdAt": "2023-12-21T15:46:22Z",
           "updatedAt": "2023-12-21T15:46:22Z"
+        },
+        {
+          "author": "martinduke",
+          "authorAssociation": "COLLABORATOR",
+          "body": "To answer @gloinul more directly, I don't think this draft is in the business of listing algorithms unless it requires new proposals to be measured against them, and not even that if the topic is out of scope. 5033bis is not a congestion control tutorial.",
+          "createdAt": "2023-12-27T19:27:52Z",
+          "updatedAt": "2023-12-27T19:27:52Z"
         }
       ]
     },
@@ -3937,6 +3944,32 @@
           "comments": []
         }
       ]
+    },
+    {
+      "number": 63,
+      "id": "PR_kwDOI7aIXc5i2OSN",
+      "title": "Multicast out of scope",
+      "url": "https://github.com/ietf-wg-ccwg/rfc5033bis/pull/63",
+      "state": "OPEN",
+      "author": "martinduke",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Fixes #40 \r\n\r\n(for real, this time)",
+      "createdAt": "2023-12-27T19:28:43Z",
+      "updatedAt": "2023-12-27T19:28:52Z",
+      "baseRepository": "ietf-wg-ccwg/rfc5033bis",
+      "baseRefName": "main",
+      "baseRefOid": "17a4121e2ca7568c0dc7abbc055e48691f545968",
+      "headRepository": "martinduke/rfc5033bis",
+      "headRefName": "multicast",
+      "headRefOid": "54e56ae382131a082c08db776c85f3655e3eda33",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": []
     }
   ]
 }
