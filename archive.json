@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2024-01-04T00:37:39.430319+00:00",
+  "timestamp": "2024-01-07T00:41:17.940007+00:00",
   "repo": "ietf-wg-ccwg/rfc5033bis",
   "labels": [
     {
@@ -808,7 +808,7 @@
       "id": "I_kwDOI7aIXc5wNPll",
       "title": "The fixed delay hypothesis",
       "url": "https://github.com/ietf-wg-ccwg/rfc5033bis/issues/28",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "huitema",
       "authorAssociation": "COLLABORATOR",
       "assignees": [
@@ -817,8 +817,8 @@
       "labels": [],
       "body": "Delay based congestion control protocols are making an assumption that the observed RTT is the sum of a constant \"min delay\" and a variable queuing delay. This assumption may not be valid on wireless links, as delays vary when the distance between mobile endpoint and base station increases, or when changing transmission condition cause the radios to adopt different modulation and coding strategies. I suspect we also have these \"variable delays\" in satellite services, especially when using constellations of low orbit satellites.\r\n\r\nThe state of the art is not very good. BBR for example recognizes its dependency on accurate estimate of the min RTT, but has to resort to some kind of periodic reset if measurements of RTT kept over RTT min for 10 seconds -- which is both quite long for some apps, and quite annoying for real time apps suffering a transmission issue every ten seconds. LEDBAT++ does something similar.\r\n\r\nI think these \"variable delays\" link are good candidates for \"special case\" links, to be mentioned in a separate section.",
       "createdAt": "2023-09-05T18:27:23Z",
-      "updatedAt": "2023-12-15T16:46:36Z",
-      "closedAt": null,
+      "updatedAt": "2024-01-04T18:13:09Z",
+      "closedAt": "2024-01-04T18:13:09Z",
       "comments": [
         {
           "author": "gorryfair",
@@ -1216,6 +1216,22 @@
           "updatedAt": "2023-12-15T17:10:53Z"
         }
       ]
+    },
+    {
+      "number": 67,
+      "id": "I_kwDOI7aIXc57GdHM",
+      "title": "Section ## Active Queue Management (AQM) {#aqm}",
+      "url": "https://github.com/ietf-wg-ccwg/rfc5033bis/issues/67",
+      "state": "OPEN",
+      "author": "gorryfair",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "This section is listed as a special case, which it is (kind of), but it seems rather out of place in that section - I think we might wish to move it to the previous section. Since the original BCP, AQM is more common and really ought to be considered in any new design - even if the design does not wish to optimise for this.",
+      "createdAt": "2024-01-04T09:20:55Z",
+      "updatedAt": "2024-01-04T09:20:55Z",
+      "closedAt": null,
+      "comments": []
     }
   ],
   "pulls": [
@@ -3970,6 +3986,189 @@
       "mergeCommit": null,
       "comments": [],
       "reviews": []
+    },
+    {
+      "number": 64,
+      "id": "PR_kwDOI7aIXc5jM8Y5",
+      "title": "Alternate multicast text",
+      "url": "https://github.com/ietf-wg-ccwg/rfc5033bis/pull/64",
+      "state": "OPEN",
+      "author": "gorryfair",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Adding a scope that excludes multicast.\r\nCloses #63 ",
+      "createdAt": "2024-01-04T08:54:41Z",
+      "updatedAt": "2024-01-04T18:11:05Z",
+      "baseRepository": "ietf-wg-ccwg/rfc5033bis",
+      "baseRefName": "main",
+      "baseRefOid": "17a4121e2ca7568c0dc7abbc055e48691f545968",
+      "headRepository": "ietf-wg-ccwg/rfc5033bis",
+      "headRefName": "gorryfair-patch-7",
+      "headRefOid": "2c02728b3db005337a482c54fd0b8c84e8af3661",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [
+        {
+          "author": "martinduke",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Uh, #63 is a PR addressing the same issue -- you were supposed to review it?",
+          "createdAt": "2024-01-04T18:10:11Z",
+          "updatedAt": "2024-01-04T18:10:11Z"
+        }
+      ],
+      "reviews": []
+    },
+    {
+      "number": 65,
+      "id": "PR_kwDOI7aIXc5jNBs_",
+      "title": "Minimum Delay text",
+      "url": "https://github.com/ietf-wg-ccwg/rfc5033bis/pull/65",
+      "state": "MERGED",
+      "author": "gorryfair",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Added first-cut of minimum delay text.\r\nIntended to close #28",
+      "createdAt": "2024-01-04T09:12:32Z",
+      "updatedAt": "2024-01-04T18:13:08Z",
+      "baseRepository": "ietf-wg-ccwg/rfc5033bis",
+      "baseRefName": "main",
+      "baseRefOid": "17a4121e2ca7568c0dc7abbc055e48691f545968",
+      "headRepository": "ietf-wg-ccwg/rfc5033bis",
+      "headRefName": "gorryfair-patch-8",
+      "headRefOid": "96ead33e2eae955a59fb4b7fcde85bec52abc09a",
+      "closedAt": "2024-01-04T18:13:08Z",
+      "mergedAt": "2024-01-04T18:13:08Z",
+      "mergedBy": "martinduke",
+      "mergeCommit": {
+        "oid": "efed14cd700a605fdde0e3d92d7b88fe37b066c4"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOI7aIXc5rkg0P",
+          "commit": {
+            "abbreviatedOid": "96ead33"
+          },
+          "author": "martinduke",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2024-01-04T18:13:01Z",
+          "updatedAt": "2024-01-04T18:13:01Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 66,
+      "id": "PR_kwDOI7aIXc5jNDkH",
+      "title": "Minor editorial changes",
+      "url": "https://github.com/ietf-wg-ccwg/rfc5033bis/pull/66",
+      "state": "OPEN",
+      "author": "gorryfair",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [
+        "editorial"
+      ],
+      "body": "Proposed Minor editorial work",
+      "createdAt": "2024-01-04T09:18:46Z",
+      "updatedAt": "2024-01-05T09:29:23Z",
+      "baseRepository": "ietf-wg-ccwg/rfc5033bis",
+      "baseRefName": "main",
+      "baseRefOid": "17a4121e2ca7568c0dc7abbc055e48691f545968",
+      "headRepository": "ietf-wg-ccwg/rfc5033bis",
+      "headRefName": "gorryfair-patch-9",
+      "headRefOid": "3d52fe768205eead2fd5309c8e6b6bbb41298cf0",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOI7aIXc5rkhFD",
+          "commit": {
+            "abbreviatedOid": "df90e26"
+          },
+          "author": "martinduke",
+          "authorAssociation": "COLLABORATOR",
+          "state": "CHANGES_REQUESTED",
+          "body": "",
+          "createdAt": "2024-01-04T18:13:47Z",
+          "updatedAt": "2024-01-04T18:15:58Z",
+          "comments": [
+            {
+              "originalPosition": 9,
+              "body": "```suggestion\r\nThe high-order criteria for any new congestion control\r\n```",
+              "createdAt": "2024-01-04T18:13:47Z",
+              "updatedAt": "2024-01-04T18:15:58Z"
+            },
+            {
+              "originalPosition": 11,
+              "body": "```suggestion\r\nis that a serious scientific study of the pros and cons needs to have been done before a proposal is\r\n```",
+              "createdAt": "2024-01-04T18:14:20Z",
+              "updatedAt": "2024-01-04T18:15:58Z"
+            },
+            {
+              "originalPosition": 21,
+              "body": "```suggestion\r\nUnless a congestion control\r\n```",
+              "createdAt": "2024-01-04T18:14:46Z",
+              "updatedAt": "2024-01-04T18:15:58Z"
+            },
+            {
+              "originalPosition": 42,
+              "body": "Honest question: Is delay variation due to \"dynamic capacity assignment\" meaningfully different from queueing delay.",
+              "createdAt": "2024-01-04T18:15:53Z",
+              "updatedAt": "2024-01-04T18:15:58Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOI7aIXc5rmUSD",
+          "commit": {
+            "abbreviatedOid": "df90e26"
+          },
+          "author": "huitema",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2024-01-05T00:37:45Z",
+          "updatedAt": "2024-01-05T00:37:45Z",
+          "comments": [
+            {
+              "originalPosition": 42,
+              "body": "That's a very old debate. On one hand, in CSMA systems, the mean time to wait before transmission is indeed linked to the network load. Increased delays are a sign of congestion. But that's not always the case. In mobile networks, a station may well move to a different cell. The delay may be longer, if the new base station is further away, or needs to poll more clients. The data rate may or may not be lower, depending of frequencies and bandwidth available. The old logic breaks.",
+              "createdAt": "2024-01-05T00:37:45Z",
+              "updatedAt": "2024-01-05T00:37:45Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOI7aIXc5rn3li",
+          "commit": {
+            "abbreviatedOid": "df90e26"
+          },
+          "author": "gorryfair",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2024-01-05T09:29:22Z",
+          "updatedAt": "2024-01-05T09:29:23Z",
+          "comments": [
+            {
+              "originalPosition": 42,
+              "body": "The case I was thinking of was Bandwidth on Demand rather than CSMA, where capacity requests are made to an allocator and capacity is assigned from a resource pool. The two main complications are: (1) The time to respond is not related to the traffic load: it is a function of the link RTT, and the allocation interval (often related to the super frame size in the systems I know of), but also dependent on the design of the method ... these have nothing to do with the queue occupancy (2) The available capacity from the resource pool depends on what can be used by the specific system ... which may be a subset of the total resource ... and also the load on that resource by other systems, propagation conditions, implemented waveforms, etc.\r\n\r\nIn short: when there is a queue, I see dynamic capacity assignment can cause delay, but the length of the delay is a function of an external control system, not the level of congestion for the flow - i.e. the delay can be transient and have no bearing on the availability of capacity next RTT. Whereas, for a FIFO queue, the queueing delay can have a strong correlation with the availability of capacity next RTT.",
+              "createdAt": "2024-01-05T09:29:23Z",
+              "updatedAt": "2024-01-05T09:29:23Z"
+            }
+          ]
+        }
+      ]
     }
   ]
 }
