@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2024-01-07T00:41:17.940007+00:00",
+  "timestamp": "2024-01-09T00:38:19.494380+00:00",
   "repo": "ietf-wg-ccwg/rfc5033bis",
   "labels": [
     {
@@ -960,7 +960,7 @@
       "labels": [],
       "body": "Discussed at IETF-118. \r\n\r\nAt least we can mention Sect 4 of Multicast UDP Usage Guidelines in RFC8085.",
       "createdAt": "2023-11-07T09:31:18Z",
-      "updatedAt": "2023-12-27T19:27:53Z",
+      "updatedAt": "2024-01-08T10:43:57Z",
       "closedAt": null,
       "comments": [
         {
@@ -1011,6 +1011,13 @@
           "body": "To answer @gloinul more directly, I don't think this draft is in the business of listing algorithms unless it requires new proposals to be measured against them, and not even that if the topic is out of scope. 5033bis is not a congestion control tutorial.",
           "createdAt": "2023-12-27T19:27:52Z",
           "updatedAt": "2023-12-27T19:27:52Z"
+        },
+        {
+          "author": "gloinul",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "@martinduke I think it is a question of how one resolve this and if one declares it out of scope. Are we explicitly stating something like this: \r\n\r\nMulticast congestion control algorithms is out scope, and the rules and requirements within this specification has not been evaluated on their applicability for multicast congestion control. Future work on multicast congesiton control to specify new algorithms or update existing [webrc][TFMCC] will have to evaluate what is applicable and if additional requirements are necessary. ",
+          "createdAt": "2024-01-08T10:43:56Z",
+          "updatedAt": "2024-01-08T10:43:56Z"
         }
       ]
     },
@@ -1106,13 +1113,23 @@
       "state": "OPEN",
       "author": "mattmathis",
       "authorAssociation": "COLLABORATOR",
-      "assignees": [],
+      "assignees": [
+        "mattmathis"
+      ],
       "labels": [],
       "body": "Define congestion collapse in terms of excess overhead under adverse conditions.    This is how it was defined circa 1987.\r\n\r\nRename the current \"congestion collapse\" section.",
       "createdAt": "2023-11-15T15:49:20Z",
-      "updatedAt": "2023-11-15T15:49:20Z",
+      "updatedAt": "2024-01-08T18:56:19Z",
       "closedAt": null,
-      "comments": []
+      "comments": [
+        {
+          "author": "ekinnear",
+          "authorAssociation": "NONE",
+          "body": "@mattmathis would you like to take a crack at finding some text that would be in scope to address the intent behind this issue?",
+          "createdAt": "2024-01-08T18:56:08Z",
+          "updatedAt": "2024-01-08T18:56:08Z"
+        }
+      ]
     },
     {
       "number": 47,
