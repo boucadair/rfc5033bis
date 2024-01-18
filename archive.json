@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2024-01-16T00:38:08.066527+00:00",
+  "timestamp": "2024-01-18T00:38:01.345097+00:00",
   "repo": "ietf-wg-ccwg/rfc5033bis",
   "labels": [
     {
@@ -951,17 +951,17 @@
       "id": "I_kwDOI7aIXc52Emk3",
       "title": "Is Multicast in scope?",
       "url": "https://github.com/ietf-wg-ccwg/rfc5033bis/issues/40",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "gorryfair",
       "authorAssociation": "COLLABORATOR",
       "assignees": [
-        "martinduke"
+        "gorryfair"
       ],
       "labels": [],
       "body": "Discussed at IETF-118. \r\n\r\nAt least we can mention Sect 4 of Multicast UDP Usage Guidelines in RFC8085.",
       "createdAt": "2023-11-07T09:31:18Z",
-      "updatedAt": "2024-01-08T10:43:57Z",
-      "closedAt": null,
+      "updatedAt": "2024-01-16T17:06:39Z",
+      "closedAt": "2024-01-16T17:06:39Z",
       "comments": [
         {
           "author": "ekinnear",
@@ -1239,14 +1239,130 @@
       "id": "I_kwDOI7aIXc57GdHM",
       "title": "Section ## Active Queue Management (AQM) {#aqm}",
       "url": "https://github.com/ietf-wg-ccwg/rfc5033bis/issues/67",
-      "state": "OPEN",
+      "state": "CLOSED",
+      "author": "gorryfair",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [
+        "gorryfair"
+      ],
+      "labels": [],
+      "body": "This section is listed as a special case, which it is (kind of), but it seems rather out of place in that section - I think we might wish to move it to the previous section. Since the original BCP, AQM is more common and really ought to be considered in any new design - even if the design does not wish to optimise for this.",
+      "createdAt": "2024-01-04T09:20:55Z",
+      "updatedAt": "2024-01-17T19:20:13Z",
+      "closedAt": "2024-01-16T18:17:10Z",
+      "comments": [
+        {
+          "author": "martinduke",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Previously discussed in #7",
+          "createdAt": "2024-01-16T15:24:55Z",
+          "updatedAt": "2024-01-16T15:24:55Z"
+        },
+        {
+          "author": "martinduke",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Editors 1/16/24: Just add a sentence that AQMs are hard to detect, and therefore must be thought about -- cannot just ban use of a CC with AQM.\r\n\r\nBut this falls thematically in with the special cases.",
+          "createdAt": "2024-01-16T16:42:12Z",
+          "updatedAt": "2024-01-16T16:42:12Z"
+        },
+        {
+          "author": "huitema",
+          "authorAssociation": "COLLABORATOR",
+          "body": "AQ are only a problem if they introduce unexpected behavior. The classic example is rate limiting, for which BB had to introduce special code. ",
+          "createdAt": "2024-01-17T19:20:12Z",
+          "updatedAt": "2024-01-17T19:20:12Z"
+        }
+      ]
+    },
+    {
+      "number": 68,
+      "id": "I_kwDOI7aIXc58Oz7r",
+      "title": "Short and Long Flows",
+      "url": "https://github.com/ietf-wg-ccwg/rfc5033bis/issues/68",
+      "state": "CLOSED",
+      "author": "martinduke",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [
+        "martinduke"
+      ],
+      "labels": [],
+      "body": "This section is still a TODO",
+      "createdAt": "2024-01-16T15:24:04Z",
+      "updatedAt": "2024-01-16T18:16:14Z",
+      "closedAt": "2024-01-16T18:16:14Z",
+      "comments": [
+        {
+          "author": "martinduke",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Just refer to the other version of this.",
+          "createdAt": "2024-01-16T16:45:52Z",
+          "updatedAt": "2024-01-16T16:45:52Z"
+        }
+      ]
+    },
+    {
+      "number": 69,
+      "id": "I_kwDOI7aIXc58PPtK",
+      "title": "Abstract seems rather odd",
+      "url": "https://github.com/ietf-wg-ccwg/rfc5033bis/issues/69",
+      "state": "CLOSED",
       "author": "gorryfair",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
-      "body": "This section is listed as a special case, which it is (kind of), but it seems rather out of place in that section - I think we might wish to move it to the previous section. Since the original BCP, AQM is more common and really ought to be considered in any new design - even if the design does not wish to optimise for this.",
-      "createdAt": "2024-01-04T09:20:55Z",
-      "updatedAt": "2024-01-04T09:20:55Z",
+      "body": "Our abstract starts:\r\n\"The IETF's standard congestion control schemes have been widely shown\r\nto be inadequate for various environments (e.g., high-speed networks,\r\nwireless technologies such as 3GPP and WiFi, long distance satellite\r\nlinks) and also in conflict with the needed, more isochronous,\r\nbehaviors of VoIP, gaming, and videoconferencing traffic.\"\r\n\r\n... is it just me, or does \"inadequate\" and \"at conflict\" seem an odd BCP statement from the IETF itself.",
+      "createdAt": "2024-01-16T16:18:48Z",
+      "updatedAt": "2024-01-16T17:02:04Z",
+      "closedAt": "2024-01-16T17:02:04Z",
+      "comments": [
+        {
+          "author": "nealcardwell",
+          "authorAssociation": "NONE",
+          "body": "Agreed. How about something closer to:\r\n\r\n\"The IETF's standard congestion control schemes have been shown to have performance challenges in various environments (e.g., high-speed networks, cellular and WiFi wireless technologies, long distance satellite links) and also for interactive traffic workloads (VoIP, gaming, and videoconferencing).\"\r\n\r\ncc: @martinduke @mattmathis ",
+          "createdAt": "2024-01-16T16:29:45Z",
+          "updatedAt": "2024-01-16T16:29:45Z"
+        }
+      ]
+    },
+    {
+      "number": 79,
+      "id": "I_kwDOI7aIXc58SRDJ",
+      "title": "Section 2 \"Document Status\" needs work",
+      "url": "https://github.com/ietf-wg-ccwg/rfc5033bis/issues/79",
+      "state": "OPEN",
+      "author": "martinduke",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [
+        "martinduke"
+      ],
+      "labels": [],
+      "body": "Sec 2 leans heavy on the dated example of Highspeed TCP and drives pretty much everything to Experimental \"until such time that the community better understands the solution space.\"\r\n\r\nIt says that experimental RFCs can either be those judged to be safe on the internet, or those intended for testbeds.\r\n\r\nAt this point, we probably understand enough to allow proposals to go for Proposed Standard.  The safe/testbed distinction also doesn't make sense -- we might want to standardize CCs for controlled environments, like DCTCP.\r\n\r\nThis needs a complete rewrite. It wouldn't hurt for that rewrite to also note that the IRTF is another venue, non-normatively.",
+      "createdAt": "2024-01-17T00:07:45Z",
+      "updatedAt": "2024-01-17T08:16:10Z",
+      "closedAt": null,
+      "comments": [
+        {
+          "author": "gorryfair",
+          "authorAssociation": "COLLABORATOR",
+          "body": "I think a rewrite would help, but I'm think that could be too radical - we still do have proposals that ought ton be EXP either until deployment experience; or until we can agree they are \"safe\" for more general use. That doesn't seem to be a problem to me, but we ought to allow PS also. \r\n\r\nI agree we ought to mention IRTF.",
+          "createdAt": "2024-01-17T08:16:09Z",
+          "updatedAt": "2024-01-17T08:16:09Z"
+        }
+      ]
+    },
+    {
+      "number": 81,
+      "id": "I_kwDOI7aIXc58YHY2",
+      "title": "Properties of Wired Networks",
+      "url": "https://github.com/ietf-wg-ccwg/rfc5033bis/issues/81",
+      "state": "OPEN",
+      "author": "martinduke",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "We missed a TODO in \"Wired Networks\"",
+      "createdAt": "2024-01-17T17:57:10Z",
+      "updatedAt": "2024-01-17T17:57:10Z",
       "closedAt": null,
       "comments": []
     }
@@ -3983,21 +4099,21 @@
       "id": "PR_kwDOI7aIXc5i2OSN",
       "title": "Multicast out of scope",
       "url": "https://github.com/ietf-wg-ccwg/rfc5033bis/pull/63",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "martinduke",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "Fixes #40 \r\n\r\n(for real, this time)",
       "createdAt": "2023-12-27T19:28:43Z",
-      "updatedAt": "2023-12-27T19:28:52Z",
+      "updatedAt": "2024-01-16T17:06:39Z",
       "baseRepository": "ietf-wg-ccwg/rfc5033bis",
       "baseRefName": "main",
       "baseRefOid": "17a4121e2ca7568c0dc7abbc055e48691f545968",
       "headRepository": "martinduke/rfc5033bis",
       "headRefName": "multicast",
       "headRefOid": "54e56ae382131a082c08db776c85f3655e3eda33",
-      "closedAt": null,
+      "closedAt": "2024-01-16T17:06:38Z",
       "mergedAt": null,
       "mergedBy": null,
       "mergeCommit": null,
@@ -4009,24 +4125,26 @@
       "id": "PR_kwDOI7aIXc5jM8Y5",
       "title": "Alternate multicast text",
       "url": "https://github.com/ietf-wg-ccwg/rfc5033bis/pull/64",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "gorryfair",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "Adding a scope that excludes multicast.\r\nCloses #63 ",
       "createdAt": "2024-01-04T08:54:41Z",
-      "updatedAt": "2024-01-04T18:11:05Z",
+      "updatedAt": "2024-01-16T17:06:38Z",
       "baseRepository": "ietf-wg-ccwg/rfc5033bis",
       "baseRefName": "main",
       "baseRefOid": "17a4121e2ca7568c0dc7abbc055e48691f545968",
       "headRepository": "ietf-wg-ccwg/rfc5033bis",
       "headRefName": "gorryfair-patch-7",
-      "headRefOid": "2c02728b3db005337a482c54fd0b8c84e8af3661",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "headRefOid": "1c33704dde255bf3e0224a10ef6157fd6abf3e2a",
+      "closedAt": "2024-01-16T17:06:38Z",
+      "mergedAt": "2024-01-16T17:06:38Z",
+      "mergedBy": "gorryfair",
+      "mergeCommit": {
+        "oid": "ce83cc50df215919edc932221378d5d4f76242dd"
+      },
       "comments": [
         {
           "author": "martinduke",
@@ -4034,9 +4152,30 @@
           "body": "Uh, #63 is a PR addressing the same issue -- you were supposed to review it?",
           "createdAt": "2024-01-04T18:10:11Z",
           "updatedAt": "2024-01-04T18:10:11Z"
+        },
+        {
+          "author": "gorryfair",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Would close #63, if this variant is merged",
+          "createdAt": "2024-01-16T16:00:11Z",
+          "updatedAt": "2024-01-16T16:00:11Z"
         }
       ],
-      "reviews": []
+      "reviews": [
+        {
+          "id": "PRR_kwDOI7aIXc5suK0P",
+          "commit": {
+            "abbreviatedOid": "01aa19d"
+          },
+          "author": "martinduke",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "Add a changelog item (as in #63) and it LGTM.",
+          "createdAt": "2024-01-16T16:26:29Z",
+          "updatedAt": "2024-01-16T16:26:29Z",
+          "comments": []
+        }
+      ]
     },
     {
       "number": 65,
@@ -4085,7 +4224,7 @@
       "id": "PR_kwDOI7aIXc5jNDkH",
       "title": "Minor editorial changes",
       "url": "https://github.com/ietf-wg-ccwg/rfc5033bis/pull/66",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "gorryfair",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
@@ -4094,17 +4233,19 @@
       ],
       "body": "Proposed Minor editorial work",
       "createdAt": "2024-01-04T09:18:46Z",
-      "updatedAt": "2024-01-05T09:29:23Z",
+      "updatedAt": "2024-01-16T18:18:36Z",
       "baseRepository": "ietf-wg-ccwg/rfc5033bis",
       "baseRefName": "main",
       "baseRefOid": "17a4121e2ca7568c0dc7abbc055e48691f545968",
       "headRepository": "ietf-wg-ccwg/rfc5033bis",
       "headRefName": "gorryfair-patch-9",
-      "headRefOid": "3d52fe768205eead2fd5309c8e6b6bbb41298cf0",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "headRefOid": "c76b85c1981c39ea28148f22360bec90b607b120",
+      "closedAt": "2024-01-16T18:18:36Z",
+      "mergedAt": "2024-01-16T18:18:36Z",
+      "mergedBy": "martinduke",
+      "mergeCommit": {
+        "oid": "2ce292f9e793ce68f4ff57e77947e7093c10da10"
+      },
       "comments": [],
       "reviews": [
         {
@@ -4184,8 +4325,516 @@
               "updatedAt": "2024-01-05T09:29:23Z"
             }
           ]
+        },
+        {
+          "id": "PRR_kwDOI7aIXc5stKXF",
+          "commit": {
+            "abbreviatedOid": "3d52fe7"
+          },
+          "author": "martinduke",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2024-01-16T15:26:55Z",
+          "updatedAt": "2024-01-16T15:28:20Z",
+          "comments": [
+            {
+              "originalPosition": 8,
+              "body": "Remove space, or restore the word 'proposal'?",
+              "createdAt": "2024-01-16T15:26:55Z",
+              "updatedAt": "2024-01-16T15:28:20Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOI7aIXc5stmaO",
+          "commit": {
+            "abbreviatedOid": "c76b85c"
+          },
+          "author": "gorryfair",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2024-01-16T15:55:25Z",
+          "updatedAt": "2024-01-16T15:55:26Z",
+          "comments": [
+            {
+              "originalPosition": 42,
+              "body": "So... let's see of what actually ought to be written for *evaluation* ?",
+              "createdAt": "2024-01-16T15:55:25Z",
+              "updatedAt": "2024-01-16T15:55:26Z"
+            }
+          ]
         }
       ]
+    },
+    {
+      "number": 70,
+      "id": "PR_kwDOI7aIXc5kN4l9",
+      "title": "Improve abstract/intro",
+      "url": "https://github.com/ietf-wg-ccwg/rfc5033bis/pull/70",
+      "state": "MERGED",
+      "author": "gorryfair",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [
+        "editorial"
+      ],
+      "body": "If merged this Closes #69 ",
+      "createdAt": "2024-01-16T16:26:10Z",
+      "updatedAt": "2024-01-16T17:02:04Z",
+      "baseRepository": "ietf-wg-ccwg/rfc5033bis",
+      "baseRefName": "main",
+      "baseRefOid": "efed14cd700a605fdde0e3d92d7b88fe37b066c4",
+      "headRepository": "ietf-wg-ccwg/rfc5033bis",
+      "headRefName": "gorryfair-patch-10",
+      "headRefOid": "34b37f4c1096522c146a3816f131c59937f78550",
+      "closedAt": "2024-01-16T17:02:03Z",
+      "mergedAt": "2024-01-16T17:02:03Z",
+      "mergedBy": "gorryfair",
+      "mergeCommit": {
+        "oid": "d5195050eaedcae1e6f89533fa0f363113f3bf1e"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOI7aIXc5sujN9",
+          "commit": {
+            "abbreviatedOid": "b832adb"
+          },
+          "author": "martinduke",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2024-01-16T16:47:06Z",
+          "updatedAt": "2024-01-16T16:47:06Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 71,
+      "id": "PR_kwDOI7aIXc5kN6w8",
+      "title": "Minor fixes",
+      "url": "https://github.com/ietf-wg-ccwg/rfc5033bis/pull/71",
+      "state": "MERGED",
+      "author": "gorryfair",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [
+        "gorryfair"
+      ],
+      "labels": [
+        "editorial"
+      ],
+      "body": "Please confirm if these improvements are correct",
+      "createdAt": "2024-01-16T16:31:45Z",
+      "updatedAt": "2024-01-16T18:18:03Z",
+      "baseRepository": "ietf-wg-ccwg/rfc5033bis",
+      "baseRefName": "main",
+      "baseRefOid": "efed14cd700a605fdde0e3d92d7b88fe37b066c4",
+      "headRepository": "ietf-wg-ccwg/rfc5033bis",
+      "headRefName": "gorryfair-patch-11",
+      "headRefOid": "9978926c89d3218fb179a19ce998c998cca64f38",
+      "closedAt": "2024-01-16T18:18:02Z",
+      "mergedAt": "2024-01-16T18:18:02Z",
+      "mergedBy": "martinduke",
+      "mergeCommit": {
+        "oid": "75713cb007e057c05818e49fa9d7378e4b11a376"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOI7aIXc5suSxe",
+          "commit": {
+            "abbreviatedOid": "9978926"
+          },
+          "author": "nealcardwell",
+          "authorAssociation": "NONE",
+          "state": "COMMENTED",
+          "body": "LGTM\r\n",
+          "createdAt": "2024-01-16T16:33:13Z",
+          "updatedAt": "2024-01-16T16:33:13Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDOI7aIXc5swA-4",
+          "commit": {
+            "abbreviatedOid": "9978926"
+          },
+          "author": "martinduke",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2024-01-16T18:16:01Z",
+          "updatedAt": "2024-01-16T18:16:01Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 72,
+      "id": "PR_kwDOI7aIXc5kOF5O",
+      "title": "Repeat short flows section",
+      "url": "https://github.com/ietf-wg-ccwg/rfc5033bis/pull/72",
+      "state": "MERGED",
+      "author": "martinduke",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Fixes #68 ",
+      "createdAt": "2024-01-16T17:01:08Z",
+      "updatedAt": "2024-01-16T18:16:13Z",
+      "baseRepository": "ietf-wg-ccwg/rfc5033bis",
+      "baseRefName": "main",
+      "baseRefOid": "efed14cd700a605fdde0e3d92d7b88fe37b066c4",
+      "headRepository": "martinduke/rfc5033bis",
+      "headRefName": "short-flows",
+      "headRefOid": "bd11d73ed8596f5e3a53662533a0781c6e922521",
+      "closedAt": "2024-01-16T18:16:13Z",
+      "mergedAt": "2024-01-16T18:16:13Z",
+      "mergedBy": "martinduke",
+      "mergeCommit": {
+        "oid": "0a530a01a9722319a4b3db1d43ee6f46876d4579"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOI7aIXc5svHaK",
+          "commit": {
+            "abbreviatedOid": "50cce0c"
+          },
+          "author": "gorryfair",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2024-01-16T17:18:59Z",
+          "updatedAt": "2024-01-16T17:18:59Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 73,
+      "id": "PR_kwDOI7aIXc5kOKWy",
+      "title": "Update draft-ietf-ccwg-rfc5033bis.md",
+      "url": "https://github.com/ietf-wg-ccwg/rfc5033bis/pull/73",
+      "state": "MERGED",
+      "author": "gorryfair",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Suggested AQM text to address issue, when merge will Close #67",
+      "createdAt": "2024-01-16T17:13:51Z",
+      "updatedAt": "2024-01-16T18:17:09Z",
+      "baseRepository": "ietf-wg-ccwg/rfc5033bis",
+      "baseRefName": "main",
+      "baseRefOid": "51b21689c7e0a49a4057c6ad50f40102b9117fb6",
+      "headRepository": "ietf-wg-ccwg/rfc5033bis",
+      "headRefName": "gorryfair-patch-12",
+      "headRefOid": "00e02785f55c365f9f244af54912c3d560237dbd",
+      "closedAt": "2024-01-16T18:17:09Z",
+      "mergedAt": "2024-01-16T18:17:09Z",
+      "mergedBy": "martinduke",
+      "mergeCommit": {
+        "oid": "fe4dd5c1b7f4112d88af78bac35e28720cef7614"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOI7aIXc5swADj",
+          "commit": {
+            "abbreviatedOid": "00e0278"
+          },
+          "author": "martinduke",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2024-01-16T18:15:23Z",
+          "updatedAt": "2024-01-16T18:15:23Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 74,
+      "id": "PR_kwDOI7aIXc5kOrgK",
+      "title": "Fix compile issue: *** {{?RFC3168}: unmatched braces \"}\"",
+      "url": "https://github.com/ietf-wg-ccwg/rfc5033bis/pull/74",
+      "state": "MERGED",
+      "author": "theri",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "Ran into a compile issue with `make`. This PR fixes the compile issue.",
+      "createdAt": "2024-01-16T19:00:04Z",
+      "updatedAt": "2024-01-16T19:03:13Z",
+      "baseRepository": "ietf-wg-ccwg/rfc5033bis",
+      "baseRefName": "main",
+      "baseRefOid": "2ce292f9e793ce68f4ff57e77947e7093c10da10",
+      "headRepository": "ietf-wg-ccwg/rfc5033bis",
+      "headRefName": "tenghardt/fix-compile-issue",
+      "headRefOid": "40cd42a51c03152b28e1b0b9630012a440e77482",
+      "closedAt": "2024-01-16T19:03:13Z",
+      "mergedAt": "2024-01-16T19:03:13Z",
+      "mergedBy": "martinduke",
+      "mergeCommit": {
+        "oid": "4611f6a27ff0a782e0613e776635aa5e1380f344"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOI7aIXc5swjtd",
+          "commit": {
+            "abbreviatedOid": "40cd42a"
+          },
+          "author": "martinduke",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2024-01-16T19:03:08Z",
+          "updatedAt": "2024-01-16T19:03:08Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 75,
+      "id": "PR_kwDOI7aIXc5kPkr2",
+      "title": "Editorial up to Competing Flows using the alt CC",
+      "url": "https://github.com/ietf-wg-ccwg/rfc5033bis/pull/75",
+      "state": "OPEN",
+      "author": "gorryfair",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Part 1 of reading",
+      "createdAt": "2024-01-16T20:37:33Z",
+      "updatedAt": "2024-01-16T22:30:44Z",
+      "baseRepository": "ietf-wg-ccwg/rfc5033bis",
+      "baseRefName": "main",
+      "baseRefOid": "4611f6a27ff0a782e0613e776635aa5e1380f344",
+      "headRepository": "ietf-wg-ccwg/rfc5033bis",
+      "headRefName": "gorryfair-patch-13",
+      "headRefOid": "8386783c96fb5bd003207622223f9e72ae52f32a",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOI7aIXc5szidG",
+          "commit": {
+            "abbreviatedOid": "8386783"
+          },
+          "author": "martinduke",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2024-01-16T22:30:38Z",
+          "updatedAt": "2024-01-16T22:30:44Z",
+          "comments": [
+            {
+              "originalPosition": 71,
+              "body": "IIUC this will be the first reference to FIFO, so please expand the acronym and delete the expansion later in the document.",
+              "createdAt": "2024-01-16T22:30:38Z",
+              "updatedAt": "2024-01-16T22:30:44Z"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 76,
+      "id": "PR_kwDOI7aIXc5kPm2x",
+      "title": "Part 2 Editorial Review",
+      "url": "https://github.com/ietf-wg-ccwg/rfc5033bis/pull/76",
+      "state": "MERGED",
+      "author": "gorryfair",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Single Flow Behaviour (prior to Mixed Alg).",
+      "createdAt": "2024-01-16T20:41:50Z",
+      "updatedAt": "2024-01-16T22:31:40Z",
+      "baseRepository": "ietf-wg-ccwg/rfc5033bis",
+      "baseRefName": "main",
+      "baseRefOid": "4611f6a27ff0a782e0613e776635aa5e1380f344",
+      "headRepository": "ietf-wg-ccwg/rfc5033bis",
+      "headRefName": "gorryfair-patch-14",
+      "headRefOid": "c0d5d2217bd62207e8b6423203dbb788dcc9dbee",
+      "closedAt": "2024-01-16T22:31:40Z",
+      "mergedAt": "2024-01-16T22:31:40Z",
+      "mergedBy": "martinduke",
+      "mergeCommit": {
+        "oid": "496a21667ece152ab94e34a4eee044bda9da145f"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOI7aIXc5szjfX",
+          "commit": {
+            "abbreviatedOid": "c0d5d22"
+          },
+          "author": "martinduke",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2024-01-16T22:31:35Z",
+          "updatedAt": "2024-01-16T22:31:35Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 77,
+      "id": "PR_kwDOI7aIXc5kQc6E",
+      "title": "Update Abstract",
+      "url": "https://github.com/ietf-wg-ccwg/rfc5033bis/pull/77",
+      "state": "OPEN",
+      "author": "martinduke",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "eliminate some awkward/unnecessary phrases. Include brief rationale for a bis.",
+      "createdAt": "2024-01-16T23:16:51Z",
+      "updatedAt": "2024-01-17T15:38:52Z",
+      "baseRepository": "ietf-wg-ccwg/rfc5033bis",
+      "baseRefName": "main",
+      "baseRefOid": "496a21667ece152ab94e34a4eee044bda9da145f",
+      "headRepository": "martinduke/rfc5033bis",
+      "headRefName": "abstract",
+      "headRefOid": "278c79c6de0f4eed95b341b00e703c569844d125",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [
+        {
+          "author": "martinduke",
+          "authorAssociation": "COLLABORATOR",
+          "body": "done",
+          "createdAt": "2024-01-17T15:38:51Z",
+          "updatedAt": "2024-01-17T15:38:51Z"
+        }
+      ],
+      "reviews": [
+        {
+          "id": "PRR_kwDOI7aIXc5s4P8P",
+          "commit": {
+            "abbreviatedOid": "233dee7"
+          },
+          "author": "gorryfair",
+          "authorAssociation": "COLLABORATOR",
+          "state": "CHANGES_REQUESTED",
+          "body": "/dealing with/ seems imperfect; is /evaluating/ better?",
+          "createdAt": "2024-01-17T07:53:05Z",
+          "updatedAt": "2024-01-17T07:53:05Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 78,
+      "id": "PR_kwDOI7aIXc5kQjoN",
+      "title": "Sec1",
+      "url": "https://github.com/ietf-wg-ccwg/rfc5033bis/pull/78",
+      "state": "MERGED",
+      "author": "martinduke",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2024-01-16T23:54:44Z",
+      "updatedAt": "2024-01-17T15:35:45Z",
+      "baseRepository": "ietf-wg-ccwg/rfc5033bis",
+      "baseRefName": "main",
+      "baseRefOid": "496a21667ece152ab94e34a4eee044bda9da145f",
+      "headRepository": "martinduke/rfc5033bis",
+      "headRefName": "sec1",
+      "headRefOid": "60cc0299c6e14a61978bfcd7550cfdca74c75ff3",
+      "closedAt": "2024-01-17T15:35:45Z",
+      "mergedAt": "2024-01-17T15:35:45Z",
+      "mergedBy": "martinduke",
+      "mergeCommit": {
+        "oid": "1d7e2c43c3cd6caf1fb6ac9f857c160879881582"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOI7aIXc5s4ZgJ",
+          "commit": {
+            "abbreviatedOid": "60cc029"
+          },
+          "author": "gorryfair",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2024-01-17T08:18:19Z",
+          "updatedAt": "2024-01-17T08:18:19Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 80,
+      "id": "PR_kwDOI7aIXc5kVs29",
+      "title": "Section 2 rewrite",
+      "url": "https://github.com/ietf-wg-ccwg/rfc5033bis/pull/80",
+      "state": "OPEN",
+      "author": "martinduke",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Fixes #79",
+      "createdAt": "2024-01-17T17:49:39Z",
+      "updatedAt": "2024-01-17T17:56:16Z",
+      "baseRepository": "ietf-wg-ccwg/rfc5033bis",
+      "baseRefName": "main",
+      "baseRefOid": "1d7e2c43c3cd6caf1fb6ac9f857c160879881582",
+      "headRepository": "martinduke/rfc5033bis",
+      "headRefName": "sec2",
+      "headRefOid": "715ec7da1f1f944dae17b418091c7758a0bc14d8",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 82,
+      "id": "PR_kwDOI7aIXc5kV0P0",
+      "title": "Sec4",
+      "url": "https://github.com/ietf-wg-ccwg/rfc5033bis/pull/82",
+      "state": "OPEN",
+      "author": "martinduke",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Fixes #81",
+      "createdAt": "2024-01-17T18:09:21Z",
+      "updatedAt": "2024-01-17T18:27:31Z",
+      "baseRepository": "ietf-wg-ccwg/rfc5033bis",
+      "baseRefName": "main",
+      "baseRefOid": "1d7e2c43c3cd6caf1fb6ac9f857c160879881582",
+      "headRepository": "martinduke/rfc5033bis",
+      "headRefName": "sec4",
+      "headRefOid": "cfe850c56b30cff50674171fd9d9f81f0c592721",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [
+        {
+          "author": "martinduke",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Also eliminated obsolete/redundant discussion of AQM.",
+          "createdAt": "2024-01-17T18:27:29Z",
+          "updatedAt": "2024-01-17T18:27:29Z"
+        }
+      ],
+      "reviews": []
     }
   ]
 }
