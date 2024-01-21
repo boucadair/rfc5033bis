@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2024-01-18T00:38:01.345097+00:00",
+  "timestamp": "2024-01-21T00:41:41.754485+00:00",
   "repo": "ietf-wg-ccwg/rfc5033bis",
   "labels": [
     {
@@ -1248,7 +1248,7 @@
       "labels": [],
       "body": "This section is listed as a special case, which it is (kind of), but it seems rather out of place in that section - I think we might wish to move it to the previous section. Since the original BCP, AQM is more common and really ought to be considered in any new design - even if the design does not wish to optimise for this.",
       "createdAt": "2024-01-04T09:20:55Z",
-      "updatedAt": "2024-01-17T19:20:13Z",
+      "updatedAt": "2024-01-18T08:58:53Z",
       "closedAt": "2024-01-16T18:17:10Z",
       "comments": [
         {
@@ -1271,6 +1271,13 @@
           "body": "AQ are only a problem if they introduce unexpected behavior. The classic example is rate limiting, for which BB had to introduce special code. ",
           "createdAt": "2024-01-17T19:20:12Z",
           "updatedAt": "2024-01-17T19:20:12Z"
+        },
+        {
+          "author": "gorryfair",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Although packet scheduling and policing are useful complimentary functions, I don't think they are AQM.",
+          "createdAt": "2024-01-18T08:58:51Z",
+          "updatedAt": "2024-01-18T08:58:51Z"
         }
       ]
     },
@@ -1329,7 +1336,7 @@
       "id": "I_kwDOI7aIXc58SRDJ",
       "title": "Section 2 \"Document Status\" needs work",
       "url": "https://github.com/ietf-wg-ccwg/rfc5033bis/issues/79",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "martinduke",
       "authorAssociation": "COLLABORATOR",
       "assignees": [
@@ -1338,8 +1345,8 @@
       "labels": [],
       "body": "Sec 2 leans heavy on the dated example of Highspeed TCP and drives pretty much everything to Experimental \"until such time that the community better understands the solution space.\"\r\n\r\nIt says that experimental RFCs can either be those judged to be safe on the internet, or those intended for testbeds.\r\n\r\nAt this point, we probably understand enough to allow proposals to go for Proposed Standard.  The safe/testbed distinction also doesn't make sense -- we might want to standardize CCs for controlled environments, like DCTCP.\r\n\r\nThis needs a complete rewrite. It wouldn't hurt for that rewrite to also note that the IRTF is another venue, non-normatively.",
       "createdAt": "2024-01-17T00:07:45Z",
-      "updatedAt": "2024-01-17T08:16:10Z",
-      "closedAt": null,
+      "updatedAt": "2024-01-19T15:25:07Z",
+      "closedAt": "2024-01-19T15:25:07Z",
       "comments": [
         {
           "author": "gorryfair",
@@ -1355,15 +1362,15 @@
       "id": "I_kwDOI7aIXc58YHY2",
       "title": "Properties of Wired Networks",
       "url": "https://github.com/ietf-wg-ccwg/rfc5033bis/issues/81",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "martinduke",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "We missed a TODO in \"Wired Networks\"",
       "createdAt": "2024-01-17T17:57:10Z",
-      "updatedAt": "2024-01-17T17:57:10Z",
-      "closedAt": null,
+      "updatedAt": "2024-01-18T17:16:45Z",
+      "closedAt": "2024-01-18T17:16:45Z",
       "comments": []
     }
   ],
@@ -4602,24 +4609,26 @@
       "id": "PR_kwDOI7aIXc5kPkr2",
       "title": "Editorial up to Competing Flows using the alt CC",
       "url": "https://github.com/ietf-wg-ccwg/rfc5033bis/pull/75",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "gorryfair",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "Part 1 of reading",
       "createdAt": "2024-01-16T20:37:33Z",
-      "updatedAt": "2024-01-16T22:30:44Z",
+      "updatedAt": "2024-01-18T17:14:12Z",
       "baseRepository": "ietf-wg-ccwg/rfc5033bis",
       "baseRefName": "main",
       "baseRefOid": "4611f6a27ff0a782e0613e776635aa5e1380f344",
       "headRepository": "ietf-wg-ccwg/rfc5033bis",
       "headRefName": "gorryfair-patch-13",
-      "headRefOid": "8386783c96fb5bd003207622223f9e72ae52f32a",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "headRefOid": "97e88acbdf8e0e2dcc2514702f8ec069e0fcb463",
+      "closedAt": "2024-01-18T17:14:12Z",
+      "mergedAt": "2024-01-18T17:14:12Z",
+      "mergedBy": "martinduke",
+      "mergeCommit": {
+        "oid": "7de51462e2a4b2d760b56a3d59b779aa9abf2612"
+      },
       "comments": [],
       "reviews": [
         {
@@ -4691,24 +4700,26 @@
       "id": "PR_kwDOI7aIXc5kQc6E",
       "title": "Update Abstract",
       "url": "https://github.com/ietf-wg-ccwg/rfc5033bis/pull/77",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "martinduke",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "eliminate some awkward/unnecessary phrases. Include brief rationale for a bis.",
       "createdAt": "2024-01-16T23:16:51Z",
-      "updatedAt": "2024-01-17T15:38:52Z",
+      "updatedAt": "2024-01-19T15:24:47Z",
       "baseRepository": "ietf-wg-ccwg/rfc5033bis",
       "baseRefName": "main",
       "baseRefOid": "496a21667ece152ab94e34a4eee044bda9da145f",
       "headRepository": "martinduke/rfc5033bis",
       "headRefName": "abstract",
-      "headRefOid": "278c79c6de0f4eed95b341b00e703c569844d125",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "headRefOid": "11c7068fc8b1a445a2ee1141c1bed48c83992697",
+      "closedAt": "2024-01-19T15:24:47Z",
+      "mergedAt": "2024-01-19T15:24:47Z",
+      "mergedBy": "martinduke",
+      "mergeCommit": {
+        "oid": "8838795983aacb659103a19eb6fdca455f335592"
+      },
       "comments": [
         {
           "author": "martinduke",
@@ -4716,6 +4727,13 @@
           "body": "done",
           "createdAt": "2024-01-17T15:38:51Z",
           "updatedAt": "2024-01-17T15:38:51Z"
+        },
+        {
+          "author": "martinduke",
+          "authorAssociation": "COLLABORATOR",
+          "body": "OK, how about now?",
+          "createdAt": "2024-01-18T17:19:30Z",
+          "updatedAt": "2024-01-18T17:19:30Z"
         }
       ],
       "reviews": [
@@ -4730,6 +4748,32 @@
           "body": "/dealing with/ seems imperfect; is /evaluating/ better?",
           "createdAt": "2024-01-17T07:53:05Z",
           "updatedAt": "2024-01-17T07:53:05Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDOI7aIXc5tB8of",
+          "commit": {
+            "abbreviatedOid": "278c79c"
+          },
+          "author": "gorryfair",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "Reading more is this CC /scheme/ or CC /algorithm/ ... to be consistent. I'm not keen on scheme, and would prefer /method/ if we don't like algorithm, or /congestion controller/. I also see /Congestion Controls/ elsewhere, which to me (on this side of the Atlantic) reads as very awkard.",
+          "createdAt": "2024-01-18T09:24:37Z",
+          "updatedAt": "2024-01-18T09:27:11Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDOI7aIXc5tLxSv",
+          "commit": {
+            "abbreviatedOid": "11c7068"
+          },
+          "author": "gorryfair",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2024-01-19T07:58:50Z",
+          "updatedAt": "2024-01-19T07:58:50Z",
           "comments": []
         }
       ]
@@ -4781,50 +4825,178 @@
       "id": "PR_kwDOI7aIXc5kVs29",
       "title": "Section 2 rewrite",
       "url": "https://github.com/ietf-wg-ccwg/rfc5033bis/pull/80",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "martinduke",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "Fixes #79",
       "createdAt": "2024-01-17T17:49:39Z",
-      "updatedAt": "2024-01-17T17:56:16Z",
+      "updatedAt": "2024-01-19T15:25:06Z",
       "baseRepository": "ietf-wg-ccwg/rfc5033bis",
       "baseRefName": "main",
-      "baseRefOid": "1d7e2c43c3cd6caf1fb6ac9f857c160879881582",
+      "baseRefOid": "1e06cbb205f979011633fef1089c433e83f4b698",
       "headRepository": "martinduke/rfc5033bis",
       "headRefName": "sec2",
-      "headRefOid": "715ec7da1f1f944dae17b418091c7758a0bc14d8",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "headRefOid": "15dc7704a6dc0c495668496aacad9b84f537babc",
+      "closedAt": "2024-01-19T15:25:06Z",
+      "mergedAt": "2024-01-19T15:25:06Z",
+      "mergedBy": "martinduke",
+      "mergeCommit": {
+        "oid": "3d35bec99726ae19f8ac6fc4e0551d139f15fda7"
+      },
       "comments": [],
-      "reviews": []
+      "reviews": [
+        {
+          "id": "PRR_kwDOI7aIXc5tB_xi",
+          "commit": {
+            "abbreviatedOid": "715ec7d"
+          },
+          "author": "gorryfair",
+          "authorAssociation": "COLLABORATOR",
+          "state": "CHANGES_REQUESTED",
+          "body": "I think this is helpful. I think there is more to do, but that this will converge nicely, please see my comments.",
+          "createdAt": "2024-01-18T09:29:50Z",
+          "updatedAt": "2024-01-18T09:51:55Z",
+          "comments": [
+            {
+              "originalPosition": 53,
+              "body": "/only deploy/only be deployed/",
+              "createdAt": "2024-01-18T09:29:50Z",
+              "updatedAt": "2024-01-18T09:51:55Z"
+            },
+            {
+              "originalPosition": 42,
+              "body": "Would prefer /congestion control algorithms/ or better /methods/ ... but let's resolve in the Abstract PR first and then apply uniformally.",
+              "createdAt": "2024-01-18T09:30:49Z",
+              "updatedAt": "2024-01-18T09:51:55Z"
+            },
+            {
+              "originalPosition": 47,
+              "body": "Add that the questions in {{general-use}} will then guide that evaluation.",
+              "createdAt": "2024-01-18T09:32:18Z",
+              "updatedAt": "2024-01-18T09:51:55Z"
+            },
+            {
+              "originalPosition": 46,
+              "body": "Oh: I'm not completely sure that Internet-scale measurement CAN answer all the questions, a deployed method that starves other types of traffic is likely to go unoticed in data, unless the measurer has some way of knowing the impact of their CC method. (Not quite the case for BBRv1, but similar). \r\nMy \"Oh\" is that for PS I think there needs to be a range of evaluations, the prerequistes are: measurement experiments at scale; tests of potential failure; stable spec. I suspect this means there has to be some \"investigation using simulation, testbeds, or controlled\r\nenvironments.\"",
+              "createdAt": "2024-01-18T09:36:01Z",
+              "updatedAt": "2024-01-18T09:51:55Z"
+            },
+            {
+              "originalPosition": 55,
+              "body": "Good:-).\r\nWe have in the past noted the need to contain the traffic in the limited networ, as in: This can require \"careful configuration of boundary routers and firewalls\" [RFC8799].",
+              "createdAt": "2024-01-18T09:41:11Z",
+              "updatedAt": "2024-01-18T09:51:55Z"
+            },
+            {
+              "originalPosition": 91,
+              "body": "And via the ISE?\r\n... In the past, we have had a number of requests to publish via the ISE, for documentation, because they did not wish to allow the IETF change-control of their method. That's maybe NOT one to highlight though?",
+              "createdAt": "2024-01-18T09:44:16Z",
+              "updatedAt": "2024-01-18T09:51:55Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOI7aIXc5tFuFf",
+          "commit": {
+            "abbreviatedOid": "715ec7d"
+          },
+          "author": "martinduke",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2024-01-18T17:23:56Z",
+          "updatedAt": "2024-01-18T17:23:56Z",
+          "comments": [
+            {
+              "originalPosition": 42,
+              "body": "Yep, I chose congestion controller and applied that to Sec 2. Other sections can be a different PR.",
+              "createdAt": "2024-01-18T17:23:56Z",
+              "updatedAt": "2024-01-18T17:24:07Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOI7aIXc5tFvUR",
+          "commit": {
+            "abbreviatedOid": "715ec7d"
+          },
+          "author": "martinduke",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2024-01-18T17:26:39Z",
+          "updatedAt": "2024-01-18T17:26:39Z",
+          "comments": [
+            {
+              "originalPosition": 46,
+              "body": "I added that global data doesn't waive the requirements in this document. You still have to look at the special cases! Which I thought was clear.",
+              "createdAt": "2024-01-18T17:26:39Z",
+              "updatedAt": "2024-01-18T17:26:40Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOI7aIXc5tFxEB",
+          "commit": {
+            "abbreviatedOid": "715ec7d"
+          },
+          "author": "martinduke",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2024-01-18T17:29:31Z",
+          "updatedAt": "2024-01-18T17:29:31Z",
+          "comments": [
+            {
+              "originalPosition": 55,
+              "body": "ack",
+              "createdAt": "2024-01-18T17:29:31Z",
+              "updatedAt": "2024-01-18T17:29:31Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOI7aIXc5tL0d5",
+          "commit": {
+            "abbreviatedOid": "15dc770"
+          },
+          "author": "gorryfair",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2024-01-19T08:01:45Z",
+          "updatedAt": "2024-01-19T08:01:45Z",
+          "comments": []
+        }
+      ]
     },
     {
       "number": 82,
       "id": "PR_kwDOI7aIXc5kV0P0",
       "title": "Sec4",
       "url": "https://github.com/ietf-wg-ccwg/rfc5033bis/pull/82",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "martinduke",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "Fixes #81",
       "createdAt": "2024-01-17T18:09:21Z",
-      "updatedAt": "2024-01-17T18:27:31Z",
+      "updatedAt": "2024-01-18T17:16:44Z",
       "baseRepository": "ietf-wg-ccwg/rfc5033bis",
       "baseRefName": "main",
       "baseRefOid": "1d7e2c43c3cd6caf1fb6ac9f857c160879881582",
       "headRepository": "martinduke/rfc5033bis",
       "headRefName": "sec4",
-      "headRefOid": "cfe850c56b30cff50674171fd9d9f81f0c592721",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "headRefOid": "f274d6105b81497e3fbd4f000c4ca29441e073b0",
+      "closedAt": "2024-01-18T17:16:44Z",
+      "mergedAt": "2024-01-18T17:16:44Z",
+      "mergedBy": "martinduke",
+      "mergeCommit": {
+        "oid": "1e06cbb205f979011633fef1089c433e83f4b698"
+      },
       "comments": [
         {
           "author": "martinduke",
@@ -4834,7 +5006,41 @@
           "updatedAt": "2024-01-17T18:27:29Z"
         }
       ],
-      "reviews": []
+      "reviews": [
+        {
+          "id": "PRR_kwDOI7aIXc5tCMb-",
+          "commit": {
+            "abbreviatedOid": "cfe850c"
+          },
+          "author": "gorryfair",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2024-01-18T09:55:48Z",
+          "updatedAt": "2024-01-18T09:55:49Z",
+          "comments": [
+            {
+              "originalPosition": 14,
+              "body": "/As/Because/ ???",
+              "createdAt": "2024-01-18T09:55:48Z",
+              "updatedAt": "2024-01-18T09:55:49Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOI7aIXc5tCMzh",
+          "commit": {
+            "abbreviatedOid": "cfe850c"
+          },
+          "author": "gorryfair",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "Approved. Is \"As\" really \"Because\" ?",
+          "createdAt": "2024-01-18T09:56:34Z",
+          "updatedAt": "2024-01-18T09:56:34Z",
+          "comments": []
+        }
+      ]
     }
   ]
 }
