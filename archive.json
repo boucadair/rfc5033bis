@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2024-01-25T00:38:44.134937+00:00",
+  "timestamp": "2024-01-28T00:38:16.865555+00:00",
   "repo": "ietf-wg-ccwg/rfc5033bis",
   "labels": [
     {
@@ -1372,6 +1372,99 @@
       "updatedAt": "2024-01-18T17:16:45Z",
       "closedAt": "2024-01-18T17:16:45Z",
       "comments": []
+    },
+    {
+      "number": 84,
+      "id": "I_kwDOI7aIXc59OrE2",
+      "title": "Add motivation for specifying congestion control algorithms to Introduction?",
+      "url": "https://github.com/ietf-wg-ccwg/rfc5033bis/issues/84",
+      "state": "OPEN",
+      "author": "theri",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "The Introduction correctly points out the following:\r\n> We cannot say now whether the original authors of [[RFC5033](https://github.com/ietf-wg-ccwg/rfc5033bis/issues/new#RFC5033)] expected that developers would be somehow waiting for IETF review before widely deploying a congestion control algorithm over the Internet, but the examples of Cubic and BBR teach us that deployment of new algorithms is not in fact gated by publication of the algorithm as an RFC. Nevertheless, guidelines are important, if only to remind potential inventors and developers of the multiple facets of the congestion control problem.\r\n\r\nThe above text says guidelines for specifications are important, but such guidelines only make sense if there is a specification in the first place.\r\nSo I wonder if it's worth saying a few words here about why it's useful to specify/standardize congestion control algorithms.\r\n\r\nA few thoughts on the benefits of specifying congestion control algorithms:\r\n- Help get a shared understanding between implementers, operators, and other interested parties of how the algorithm works and how it is expected to behave (or explicit discussion of parameters and such which can lead to differences in behavior)\r\n- As a result of the shared understanding:\u202fMake it easier for anyone, not just the initial proponents or main implementers, to point out current issues/limitations or suggest improvements  of a spec that is still in development, and make it easier to converge such changes to a consensus behavior\r\n\r\nThere may be more benefits. \r\nThough I wonder how to best capture the nuance of \"Some documentation or artifacts are better than nothing, but an actual spec is better than just a snapshot for documentation or artifacts\".\r\n\r\nDo people think it'll be useful to add something along these lines to the document?",
+      "createdAt": "2024-01-25T19:04:45Z",
+      "updatedAt": "2024-01-26T09:00:45Z",
+      "closedAt": null,
+      "comments": [
+        {
+          "author": "nealcardwell",
+          "authorAssociation": "NONE",
+          "body": "I agree it would be great to add this to the doc, and agree that those two bullet points would be good to integrate.\r\n\r\nAnother more specific benefit that may make sense to add: due to the constraints of open source licenses, some implementors have noted that in some cases they are unable to read open source reference implementations; in such cases it is important to have a detailed spec of the algorithm that is unencumbered by open source license constraints.\r\n",
+          "createdAt": "2024-01-25T20:00:56Z",
+          "updatedAt": "2024-01-25T20:00:56Z"
+        },
+        {
+          "author": "gorryfair",
+          "authorAssociation": "COLLABORATOR",
+          "body": "I can see this would be of value to someone considering submitting a proposal. It also may help them to justify the effort in writing this down. If we can find words that work, I'd like to consider adding something on this.",
+          "createdAt": "2024-01-26T08:16:47Z",
+          "updatedAt": "2024-01-26T08:16:47Z"
+        },
+        {
+          "author": "alvestrand",
+          "authorAssociation": "NONE",
+          "body": "Guidelines on what to consider are good for anyone (those who design, those who implement and those who document).\r\nThe only place where guidelines could be used for enforcing something is where people wish to have congestion control algorithms published through the IETF. But that doesn't make them useless in other parts of the process.\r\n\r\n(My friend who does CC for realtime media is developing his work through iterations of code, not iterations of documentation. Guidelines would still be useful for him.)",
+          "createdAt": "2024-01-26T09:00:44Z",
+          "updatedAt": "2024-01-26T09:00:44Z"
+        }
+      ]
+    },
+    {
+      "number": 85,
+      "id": "I_kwDOI7aIXc59OuJV",
+      "title": "Required statement in the abstract",
+      "url": "https://github.com/ietf-wg-ccwg/rfc5033bis/issues/85",
+      "state": "OPEN",
+      "author": "theri",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "Section 2 currently says:\r\n> Each alternate congestion controller published is required to include a statement in the abstract indicating whether or not there is IETF consensus that the proposal is considered safe for use on the Internet. Each alternate congestion controller published is also required to include a statement in the abstract describing environments where the protocol is not recommended for deployment. There can be environments where the controller is deemed safe for use, but it is still is not recommended for use because it does not perform well for the user.\r\n\r\nThe document then points to [HighSpeed TCP (RFC3649)](https://www.rfc-editor.org/rfc/rfc3649) and [Quick-Start TCP (RFC 4782)](https://www.rfc-editor.org/rfc/rfc4782), published in 2003 and 2007 respectively, which both have such a statement. I noticed that [CUBIC (RFC 9438)](https://www.rfc-editor.org/rfc/rfc9438), published in 2023, has no such statement.\r\nI have noticed a tendency towards shorter abstracts in general, and I wonder if it really makes sense to require this statement in all cases, and risk having the requirement to be ignored.\r\n\r\nAs an alternative, 5033bis could explicitly state a \"default\", such as:\u202fIf it's Standards Track and the abstract doesn't have an explicit statement, the assumption is that the proposal is considered safe for use on the Internet.\r\nIf it's Experimental, the default assumption is that the proposal is not considered safe for use on the Internet, and the document needs to contain more details (but remove the requirement for the details to be in the abstract).\r\n\r\nDo people think this would be a sensible change to the document?",
+      "createdAt": "2024-01-25T19:14:36Z",
+      "updatedAt": "2024-01-26T08:15:25Z",
+      "closedAt": null,
+      "comments": [
+        {
+          "author": "gorryfair",
+          "authorAssociation": "COLLABORATOR",
+          "body": "For mew, I do think this would be appropriate practice for a BCP to introduce. It has become quite common in preparing/doing IESG review to check that the abstract states the applicability, in same way as it notes if there is a major update to other RFCs.",
+          "createdAt": "2024-01-26T08:15:24Z",
+          "updatedAt": "2024-01-26T08:15:24Z"
+        }
+      ]
+    },
+    {
+      "number": 86,
+      "id": "I_kwDOI7aIXc59OvQc",
+      "title": "Flows sharing a bottleneck under Single Algorithm Behavior?",
+      "url": "https://github.com/ietf-wg-ccwg/rfc5033bis/issues/86",
+      "state": "OPEN",
+      "author": "theri",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "This _might_ be an editorial issue, and/or I might be misunderstanding something:\r\n\r\nSection 3.1 is explicitly scoped as Single Algorithm Behavior.\r\n\r\nSubsection 3.1.4 starts with:\r\n>\u202fIn contexts where differing congestion control algorithms are used, it is important to understand whether an alternate congestion control algorithm can induce more harm to sharing flows than existing defined methods. \r\n\r\nDoesn't the use of \"differing congestion control algorithms\" imply that this subsection is about Mixed Algorithm Behavior, so it should be under Section 3.2?\r\nOr am I missing a subtle nuance here, in which case I suggest clarifying why this text needs to be under 3.1? Or does it apply to both Single and Mixed Algorithm Behavior?",
+      "createdAt": "2024-01-25T19:18:02Z",
+      "updatedAt": "2024-01-26T16:56:36Z",
+      "closedAt": null,
+      "comments": [
+        {
+          "author": "gorryfair",
+          "authorAssociation": "COLLABORATOR",
+          "body": "I changed to use the word \"differing\" ... was that the correct intent?",
+          "createdAt": "2024-01-26T08:17:33Z",
+          "updatedAt": "2024-01-26T08:17:33Z"
+        },
+        {
+          "author": "theri",
+          "authorAssociation": "NONE",
+          "body": "Sorry, I don't follow, Gorry.\r\nMy question was: Why is text about \"differing algorithms\" under Section 3.1 \"Single Algorithm Behavior\"? And should this text be under Section 3.2 \"Mixed Algorithm Behavior\" instead?",
+          "createdAt": "2024-01-26T16:56:35Z",
+          "updatedAt": "2024-01-26T16:56:35Z"
+        }
+      ]
     }
   ],
   "pulls": [
@@ -5039,6 +5132,113 @@
           "createdAt": "2024-01-18T09:56:34Z",
           "updatedAt": "2024-01-18T09:56:34Z",
           "comments": []
+        }
+      ]
+    },
+    {
+      "number": 83,
+      "id": "PR_kwDOI7aIXc5lF3wq",
+      "title": "Editorial pass to draft-ietf-ccwg-rfc5033bis.md",
+      "url": "https://github.com/ietf-wg-ccwg/rfc5033bis/pull/83",
+      "state": "OPEN",
+      "author": "gorryfair",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "This also updates some requirements in line with others.",
+      "createdAt": "2024-01-25T17:48:15Z",
+      "updatedAt": "2024-01-26T08:10:27Z",
+      "baseRepository": "ietf-wg-ccwg/rfc5033bis",
+      "baseRefName": "main",
+      "baseRefOid": "3d35bec99726ae19f8ac6fc4e0551d139f15fda7",
+      "headRepository": "ietf-wg-ccwg/rfc5033bis",
+      "headRefName": "gorryfair-patch-15",
+      "headRefOid": "f60073026fd5f4cb15d25fe46784a0de83c5b572",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOI7aIXc5t71DB",
+          "commit": {
+            "abbreviatedOid": "ef37ae9"
+          },
+          "author": "theri",
+          "authorAssociation": "NONE",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2024-01-25T18:37:10Z",
+          "updatedAt": "2024-01-25T18:37:10Z",
+          "comments": [
+            {
+              "originalPosition": 369,
+              "body": "What does \"a ste of\" mean? Could this be a typo?",
+              "createdAt": "2024-01-25T18:37:10Z",
+              "updatedAt": "2024-01-25T18:37:10Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOI7aIXc5t71fK",
+          "commit": {
+            "abbreviatedOid": "ef37ae9"
+          },
+          "author": "theri",
+          "authorAssociation": "NONE",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2024-01-25T18:38:21Z",
+          "updatedAt": "2024-01-25T18:38:21Z",
+          "comments": [
+            {
+              "originalPosition": 500,
+              "body": "```suggestion\r\nCongestion control proposals SHOULD be evaluated to ensure their operation is robust\r\n```",
+              "createdAt": "2024-01-25T18:38:21Z",
+              "updatedAt": "2024-01-25T18:38:22Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOI7aIXc5t71ok",
+          "commit": {
+            "abbreviatedOid": "ef37ae9"
+          },
+          "author": "theri",
+          "authorAssociation": "NONE",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2024-01-25T18:38:45Z",
+          "updatedAt": "2024-01-25T18:38:46Z",
+          "comments": [
+            {
+              "originalPosition": 604,
+              "body": "```suggestion\r\nmultipath techniques can be used.\r\n```",
+              "createdAt": "2024-01-25T18:38:45Z",
+              "updatedAt": "2024-01-25T18:38:46Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOI7aIXc5t_BLv",
+          "commit": {
+            "abbreviatedOid": "256d3ef"
+          },
+          "author": "gorryfair",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2024-01-26T08:07:57Z",
+          "updatedAt": "2024-01-26T08:07:57Z",
+          "comments": [
+            {
+              "originalPosition": 369,
+              "body": "whoops",
+              "createdAt": "2024-01-26T08:07:57Z",
+              "updatedAt": "2024-01-26T08:07:57Z"
+            }
+          ]
         }
       ]
     }
