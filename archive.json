@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2024-01-28T00:38:16.865555+00:00",
+  "timestamp": "2024-01-30T00:35:48.788065+00:00",
   "repo": "ietf-wg-ccwg/rfc5033bis",
   "labels": [
     {
@@ -1381,11 +1381,13 @@
       "state": "OPEN",
       "author": "theri",
       "authorAssociation": "NONE",
-      "assignees": [],
+      "assignees": [
+        "theri"
+      ],
       "labels": [],
       "body": "The Introduction correctly points out the following:\r\n> We cannot say now whether the original authors of [[RFC5033](https://github.com/ietf-wg-ccwg/rfc5033bis/issues/new#RFC5033)] expected that developers would be somehow waiting for IETF review before widely deploying a congestion control algorithm over the Internet, but the examples of Cubic and BBR teach us that deployment of new algorithms is not in fact gated by publication of the algorithm as an RFC. Nevertheless, guidelines are important, if only to remind potential inventors and developers of the multiple facets of the congestion control problem.\r\n\r\nThe above text says guidelines for specifications are important, but such guidelines only make sense if there is a specification in the first place.\r\nSo I wonder if it's worth saying a few words here about why it's useful to specify/standardize congestion control algorithms.\r\n\r\nA few thoughts on the benefits of specifying congestion control algorithms:\r\n- Help get a shared understanding between implementers, operators, and other interested parties of how the algorithm works and how it is expected to behave (or explicit discussion of parameters and such which can lead to differences in behavior)\r\n- As a result of the shared understanding:\u202fMake it easier for anyone, not just the initial proponents or main implementers, to point out current issues/limitations or suggest improvements  of a spec that is still in development, and make it easier to converge such changes to a consensus behavior\r\n\r\nThere may be more benefits. \r\nThough I wonder how to best capture the nuance of \"Some documentation or artifacts are better than nothing, but an actual spec is better than just a snapshot for documentation or artifacts\".\r\n\r\nDo people think it'll be useful to add something along these lines to the document?",
       "createdAt": "2024-01-25T19:04:45Z",
-      "updatedAt": "2024-01-26T09:00:45Z",
+      "updatedAt": "2024-01-29T21:43:01Z",
       "closedAt": null,
       "comments": [
         {
@@ -5241,6 +5243,32 @@
           ]
         }
       ]
+    },
+    {
+      "number": 87,
+      "id": "PR_kwDOI7aIXc5lYUdb",
+      "title": "Add motivation for specifying congestion control algorithms",
+      "url": "https://github.com/ietf-wg-ccwg/rfc5033bis/pull/87",
+      "state": "OPEN",
+      "author": "theri",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "_(Contributing text as an individual, chair hat off)_\r\n\r\nHere's some initial proposed text based to resolve #84.\r\nPlease feel free to tweak my proposal.",
+      "createdAt": "2024-01-29T21:51:18Z",
+      "updatedAt": "2024-01-29T21:51:18Z",
+      "baseRepository": "ietf-wg-ccwg/rfc5033bis",
+      "baseRefName": "main",
+      "baseRefOid": "3d35bec99726ae19f8ac6fc4e0551d139f15fda7",
+      "headRepository": "ietf-wg-ccwg/rfc5033bis",
+      "headRefName": "tenghardt/motivation",
+      "headRefOid": "d22b382fcce5632fd4092fb234f6df19ad71c7e4",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": []
     }
   ]
 }
