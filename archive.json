@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2024-02-01T00:37:35.162199+00:00",
+  "timestamp": "2024-02-04T00:38:47.357593+00:00",
   "repo": "ietf-wg-ccwg/rfc5033bis",
   "labels": [
     {
@@ -1456,15 +1456,15 @@
       "id": "I_kwDOI7aIXc59OvQc",
       "title": "Flows sharing a bottleneck under Single Algorithm Behavior?",
       "url": "https://github.com/ietf-wg-ccwg/rfc5033bis/issues/86",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "theri",
       "authorAssociation": "NONE",
       "assignees": [],
       "labels": [],
       "body": "This _might_ be an editorial issue, and/or I might be misunderstanding something:\r\n\r\nSection 3.1 is explicitly scoped as Single Algorithm Behavior.\r\n\r\nSubsection 3.1.4 starts with:\r\n>\u202fIn contexts where differing congestion control algorithms are used, it is important to understand whether an alternate congestion control algorithm can induce more harm to sharing flows than existing defined methods. \r\n\r\nDoesn't the use of \"differing congestion control algorithms\" imply that this subsection is about Mixed Algorithm Behavior, so it should be under Section 3.2?\r\nOr am I missing a subtle nuance here, in which case I suggest clarifying why this text needs to be under 3.1? Or does it apply to both Single and Mixed Algorithm Behavior?",
       "createdAt": "2024-01-25T19:18:02Z",
-      "updatedAt": "2024-01-31T19:27:44Z",
-      "closedAt": null,
+      "updatedAt": "2024-02-02T16:21:52Z",
+      "closedAt": "2024-02-02T16:21:52Z",
       "comments": [
         {
           "author": "gorryfair",
@@ -1486,6 +1486,13 @@
           "body": "I agree with Reese. This subsection is redundant with the reference to bottlenecks at the start of the section, and further discussion of \"significant negative impact\" in the mixed algorithm section.",
           "createdAt": "2024-01-31T19:27:43Z",
           "updatedAt": "2024-01-31T19:27:43Z"
+        },
+        {
+          "author": "martinduke",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Fixed by #89 ",
+          "createdAt": "2024-02-02T16:21:52Z",
+          "updatedAt": "2024-02-02T16:21:52Z"
         }
       ]
     }
@@ -5429,21 +5436,21 @@
       "id": "PR_kwDOI7aIXc5lm_SA",
       "title": "Delete redundant section",
       "url": "https://github.com/ietf-wg-ccwg/rfc5033bis/pull/88",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "martinduke",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "Fixes #86",
       "createdAt": "2024-01-31T19:27:59Z",
-      "updatedAt": "2024-01-31T19:40:08Z",
+      "updatedAt": "2024-02-02T16:21:36Z",
       "baseRepository": "ietf-wg-ccwg/rfc5033bis",
       "baseRefName": "main",
       "baseRefOid": "05f6048e60901b53bcc290e92ce8babc445f6e45",
       "headRepository": "martinduke/rfc5033bis",
       "headRefName": "delete-bottleneck",
       "headRefOid": "8be497af09746b979e4b0f88b91413e4d24147ff",
-      "closedAt": null,
+      "closedAt": "2024-02-02T16:21:35Z",
       "mergedAt": null,
       "mergedBy": null,
       "mergeCommit": null,
@@ -5468,8 +5475,106 @@
           "body": "Oh, right, thanks. Nevermind my question then.",
           "createdAt": "2024-01-31T19:40:08Z",
           "updatedAt": "2024-01-31T19:40:08Z"
+        },
+        {
+          "author": "gorryfair",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Wait a minute, I don't think I agree with this PR: to me: a starvation test isn't a fairness test.\r\nTo me fairness is about whether a method wisely distributes capacity between the set of flows. Often this is a long-term measurement that can be made by app, if one understands the other flows, i.e.e, once algorithms have converged. e.g. For a web client: One could in principle do this by showing that if there are N flows, a flow converges to 1/N of capacity...\r\nStarvation on the other hand  is about the effect a flow has on a different flow. I think it may only be relevent when you have a different algorithm or type of traffic. Starvation really is much harder to evaluate in a practical measurement, because it concerns whether the flow has the effect of disrupting another flow so that it does significantly worse  (more harm) than flow that would expect. A web client typically does not know if it's CC behaviour disrupts a different multimedia transfer's timing, (unless you dig into the data for that other application (the other sharing flow), which might be with a different IP address/user.\r\n\r\nNow I'm not sure this is so clear, in our current text, but we might perjaps need to think in terms of fairness of algorithms to traffic using the method, and harm to other traffic using other algorithms.",
+          "createdAt": "2024-02-02T15:53:17Z",
+          "updatedAt": "2024-02-02T15:53:17Z"
+        },
+        {
+          "author": "martinduke",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Are you concerned about this for single algorithms or for mixed algorithms?\r\n\r\nIf the first, we have to delete the first clause. If the second, this should move into the next session.",
+          "createdAt": "2024-02-02T15:56:26Z",
+          "updatedAt": "2024-02-02T15:56:26Z"
+        },
+        {
+          "author": "gorryfair",
+          "authorAssociation": "COLLABORATOR",
+          "body": "I think I may have changed my mind since we wrote, so there is something to change - I think that harm - aka impact on delay, stravation, etc is pirmarily a concern when competing with other algorithms.",
+          "createdAt": "2024-02-02T16:01:15Z",
+          "updatedAt": "2024-02-02T16:01:15Z"
+        },
+        {
+          "author": "martinduke",
+          "authorAssociation": "COLLABORATOR",
+          "body": "deleted in favor of #89",
+          "createdAt": "2024-02-02T16:21:36Z",
+          "updatedAt": "2024-02-02T16:21:36Z"
         }
       ],
+      "reviews": []
+    },
+    {
+      "number": 89,
+      "id": "PR_kwDOI7aIXc5l2UEo",
+      "title": "Move bottleneck",
+      "url": "https://github.com/ietf-wg-ccwg/rfc5033bis/pull/89",
+      "state": "MERGED",
+      "author": "martinduke",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Different fix for #86 ",
+      "createdAt": "2024-02-02T15:59:39Z",
+      "updatedAt": "2024-02-02T16:21:14Z",
+      "baseRepository": "ietf-wg-ccwg/rfc5033bis",
+      "baseRefName": "main",
+      "baseRefOid": "05f6048e60901b53bcc290e92ce8babc445f6e45",
+      "headRepository": "martinduke/rfc5033bis",
+      "headRefName": "move-bottleneck",
+      "headRefOid": "4cb904a450ad6d1aa08ac3da592370766a697fd8",
+      "closedAt": "2024-02-02T16:21:14Z",
+      "mergedAt": "2024-02-02T16:21:14Z",
+      "mergedBy": "martinduke",
+      "mergeCommit": {
+        "oid": "1313deb6ad372023b46f624a0867da5f895fc7a4"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOI7aIXc5u1z3Y",
+          "commit": {
+            "abbreviatedOid": "4cb904a"
+          },
+          "author": "gorryfair",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "Good enough for me, this organisation seems more helpful.",
+          "createdAt": "2024-02-02T16:03:13Z",
+          "updatedAt": "2024-02-02T16:03:13Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 90,
+      "id": "PR_kwDOI7aIXc5l2gDc",
+      "title": "Delete unused reference",
+      "url": "https://github.com/ietf-wg-ccwg/rfc5033bis/pull/90",
+      "state": "MERGED",
+      "author": "martinduke",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2024-02-02T16:29:07Z",
+      "updatedAt": "2024-02-02T16:29:37Z",
+      "baseRepository": "ietf-wg-ccwg/rfc5033bis",
+      "baseRefName": "main",
+      "baseRefOid": "1313deb6ad372023b46f624a0867da5f895fc7a4",
+      "headRepository": "martinduke/rfc5033bis",
+      "headRefName": "main",
+      "headRefOid": "a464e5232cb6d933db7ea5ef65659e6370a47e31",
+      "closedAt": "2024-02-02T16:29:37Z",
+      "mergedAt": "2024-02-02T16:29:37Z",
+      "mergedBy": "martinduke",
+      "mergeCommit": {
+        "oid": "048a36e3ac067550c51460d2f129c756b5584cdc"
+      },
+      "comments": [],
       "reviews": []
     }
   ]
