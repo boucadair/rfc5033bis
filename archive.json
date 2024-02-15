@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2024-02-13T00:36:14.637850+00:00",
+  "timestamp": "2024-02-15T00:35:46.756961+00:00",
   "repo": "ietf-wg-ccwg/rfc5033bis",
   "labels": [
     {
@@ -5179,7 +5179,7 @@
       "labels": [],
       "body": "This also updates some requirements in line with others.",
       "createdAt": "2024-01-25T17:48:15Z",
-      "updatedAt": "2024-01-31T18:53:02Z",
+      "updatedAt": "2024-02-14T18:30:30Z",
       "baseRepository": "ietf-wg-ccwg/rfc5033bis",
       "baseRefName": "main",
       "baseRefOid": "3d35bec99726ae19f8ac6fc4e0551d139f15fda7",
@@ -5378,6 +5378,46 @@
           "createdAt": "2024-01-31T18:50:38Z",
           "updatedAt": "2024-01-31T18:50:38Z",
           "comments": []
+        },
+        {
+          "id": "PRR_kwDOI7aIXc5wAr6C",
+          "commit": {
+            "abbreviatedOid": "c2509b0"
+          },
+          "author": "huitema",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "I like the proposed edits. Just made a minor suggestion for further improvement.",
+          "createdAt": "2024-02-14T01:35:15Z",
+          "updatedAt": "2024-02-14T01:40:38Z",
+          "comments": [
+            {
+              "originalPosition": 235,
+              "body": "This does not read well: \"In contexts where differing congestion control\r\nalgorithms are used, it is important to understand whether\r\na proposal can induce more\r\nharm to sharing flows than for the existing\r\ndefined methods.\" \r\n\r\nProposal: \"In contexts where differing congestion control\r\nalgorithms are used, it is important to understand whether\r\na proposal can induce more\r\nharm than previously defined algorithms to flows sharing a common bottleneck.\" \r\n",
+              "createdAt": "2024-02-14T01:35:15Z",
+              "updatedAt": "2024-02-14T01:40:38Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOI7aIXc5wHZSN",
+          "commit": {
+            "abbreviatedOid": "c2509b0"
+          },
+          "author": "gorryfair",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2024-02-14T18:30:30Z",
+          "updatedAt": "2024-02-14T18:30:30Z",
+          "comments": [
+            {
+              "originalPosition": 235,
+              "body": "better as far as I can see\r\nbut ... Looking at this, i worry about whether \"can\" could be misread?\r\n /can/could result in/ ?\r\n",
+              "createdAt": "2024-02-14T18:30:30Z",
+              "updatedAt": "2024-02-14T18:30:30Z"
+            }
+          ]
         }
       ]
     },
