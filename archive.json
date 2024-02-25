@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2024-02-22T00:35:25.414693+00:00",
+  "timestamp": "2024-02-25T00:38:24.918439+00:00",
   "repo": "ietf-wg-ccwg/rfc5033bis",
   "labels": [
     {
@@ -1495,6 +1495,22 @@
           "updatedAt": "2024-02-02T16:21:52Z"
         }
       ]
+    },
+    {
+      "number": 92,
+      "id": "I_kwDOI7aIXc6AMQx8",
+      "title": "Something very odd about section 3.1.4 (technical github problem?)",
+      "url": "https://github.com/ietf-wg-ccwg/rfc5033bis/issues/92",
+      "state": "OPEN",
+      "author": "mwelzl",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "Hi,\r\n\r\nIn the \"Editor's copy\", there is a section 3.1.4. called \"Avoiding Starvation of Flows sharing a bottleneck.\"\r\n(side note: I suggest to update this title to \"Avoiding Starvation of Flows Sharing a Bottleneck\")\r\n\r\nThis section is also visible when I follow the link called: \"Compare Editor's Copy to Individual Draft\".\r\n\r\nHOWEVER: the section is *not* a part of the .md file ???\r\nHow strange? How can this happen?\r\n\r\nBTW, in terms of content, this section is useful to me, but perhaps not strictly necessary to include since section 3.1.1 exists.",
+      "createdAt": "2024-02-23T09:27:20Z",
+      "updatedAt": "2024-02-23T09:27:20Z",
+      "closedAt": null,
+      "comments": []
     }
   ],
   "pulls": [
